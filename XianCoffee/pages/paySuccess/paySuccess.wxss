@@ -1,0 +1,301 @@
+/* 支付成功页样式：控制成功图标、信息卡片和按钮。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #565e42;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.pay-success-page {
+  min-height: 100vh;
+  padding: 56rpx 40rpx 30rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.success-content {
+  min-height: calc(100vh - 86rpx);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.brand {
+  margin-top: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+}
+
+/* 品牌元素：控制 logo、标题和英文标识样式。 */
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-name {
+  color: #596043;
+  font-size: 42rpx;
+  line-height: 48rpx;
+  font-weight: 800;
+  letter-spacing: 10rpx;
+}
+
+.brand-en {
+  margin-top: 8rpx;
+  color: #7b725d;
+  font-size: 15rpx;
+  line-height: 18rpx;
+  letter-spacing: 7rpx;
+  transform: translateX(-3rpx);
+}
+
+.brand-leaf {
+  width: 40rpx;
+  height: 56rpx;
+  flex-shrink: 0;
+}
+
+.brand-leaf-left {
+  transform: rotate(-18deg);
+}
+
+.brand-leaf-right {
+  transform: rotate(18deg) scaleX(-1);
+}
+
+.check-icon {
+  width: 86rpx;
+  height: 86rpx;
+  margin-top: 50rpx;
+}
+
+.status-title {
+  margin-top: 30rpx;
+  color: #596043;
+  font-size: 50rpx;
+  line-height: 62rpx;
+  font-weight: 800;
+  letter-spacing: 12rpx;
+  text-indent: 12rpx;
+}
+
+.thanks-row {
+  margin-top: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  color: #85806f;
+  font-size: 23rpx;
+  line-height: 30rpx;
+  letter-spacing: 4rpx;
+}
+
+.small-leaf {
+  width: 26rpx;
+  height: 34rpx;
+  flex-shrink: 0;
+}
+
+.small-leaf.left,
+.title-leaf.left {
+  transform: rotate(-42deg);
+}
+
+.small-leaf.right,
+.title-leaf.right {
+  transform: rotate(42deg) scaleX(-1);
+}
+
+.hero-image {
+  width: 690rpx;
+  height: 388rpx;
+  margin-top: 24rpx;
+  flex-shrink: 0;
+}
+
+.code-card,
+.info-card {
+  width: 100%;
+  border: 2rpx solid rgba(194, 174, 137, 0.76);
+  border-radius: 20rpx;
+  background: rgba(255, 250, 239, 0.28);
+  box-sizing: border-box;
+}
+
+.code-card {
+  height: 295rpx;
+  margin-top: 24rpx;
+  padding: 28rpx 38rpx 22rpx;
+}
+
+.code-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18rpx;
+  color: #596043;
+  font-size: 31rpx;
+  line-height: 40rpx;
+  font-weight: 800;
+  letter-spacing: 12rpx;
+  text-indent: 12rpx;
+}
+
+.title-leaf {
+  width: 34rpx;
+  height: 38rpx;
+  flex-shrink: 0;
+}
+
+.code-line {
+  margin-top: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32rpx;
+}
+
+.pickup-code {
+  color: #596043;
+  font-size: 70rpx;
+  line-height: 102rpx;
+  font-weight: 800;
+  letter-spacing: 8rpx;
+}
+
+.side-mark {
+  color: #7e8068;
+  font-size: 54rpx;
+  line-height: 60rpx;
+  transform: rotate(180deg);
+}
+
+.side-mark.right {
+  transform: none;
+  transform: rotate(180deg);
+}
+
+.dash-line {
+  height: 2rpx;
+  margin: 10rpx 0 20rpx;
+  background-image: linear-gradient(to right, rgba(186, 166, 130, 0.52) 0, rgba(186, 166, 130, 0.52) 10rpx, transparent 10rpx, transparent 20rpx);
+  background-size: 20rpx 2rpx;
+}
+
+.amount-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 50rpx;
+}
+
+.amount-label {
+  color: #7c7461;
+  font-size: 32rpx;
+  line-height: 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.amount-value {
+  color: #596043;
+  font-size: 39rpx;
+  line-height: 52rpx;
+  font-weight: 800;
+  letter-spacing: 3rpx;
+}
+
+.info-card {
+  margin-top: 20rpx;
+  padding: 14rpx 30rpx;
+}
+
+.info-row {
+  height: 70rpx;
+  border-bottom: 2rpx dashed rgba(186, 166, 130, 0.48);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.info-row.last {
+  border-bottom: 0;
+}
+
+.info-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.info-label {
+  color: #605f4d;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  letter-spacing: 2rpx;
+  white-space: nowrap;
+}
+
+.info-value {
+  min-width: 0;
+  color: #7b735f;
+  font-size: 30rpx;
+  line-height: 34rpx;
+  white-space: nowrap;
+}
+
+.primary-action,
+.secondary-action {
+  width: 580rpx;
+  height: 78rpx;
+  border-radius: 42rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 31rpx;
+  line-height: 38rpx;
+  letter-spacing: 2rpx;
+}
+
+.primary-action {
+  margin-top: 30rpx;
+  background: #768160;
+  color: #fff8ec;
+  font-weight: 700;
+}
+
+.secondary-action {
+  margin-top: 20rpx;
+  border: 2rpx solid #7d785f;
+  color: #62624d;
+  background: transparent;
+  font-weight: 700;
+}
+
+@media (max-width: 360px) {
+  .pay-success-page {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+  }
+
+  .hero-image {
+    width: 690rpx;
+    height: 388rpx;
+  }
+
+  .brand-name {
+    font-size: 38rpx;
+  }
+
+  .pickup-code {
+    font-size: 86rpx;
+  }
+}

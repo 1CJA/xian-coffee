@@ -1,0 +1,178 @@
+/* 设置页样式：控制设置列表、箭头和按钮样式。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #344022;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.settings-page {
+  min-height: 100vh;
+  padding: 50rpx 30rpx 70rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.topbar {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn,
+.top-placeholder {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.back-arrow {
+  width: 26rpx;
+  height: 26rpx;
+  border-left: 5rpx solid #344022;
+  border-bottom: 5rpx solid #344022;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
+
+.page-title {
+  color: #344022;
+  font-size: 42rpx;
+  line-height: 54rpx;
+  font-weight: 900;
+  letter-spacing: 4rpx;
+}
+
+/* 设置分组：控制列表间距。 */
+.setting-section {
+  margin-top: 38rpx;
+}
+
+.section-title {
+  display: block;
+  margin-left: 10rpx;
+  margin-bottom: 18rpx;
+  color: #344022;
+  font-size: 33rpx;
+  line-height: 42rpx;
+  font-weight: 900;
+}
+
+.setting-card {
+  border: 2rpx solid rgba(200, 178, 142, 0.62);
+  border-radius: 28rpx;
+  background: rgba(255, 250, 240, 0.56);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.setting-row {
+  height: 92rpx;
+  padding: 0 26rpx 0 34rpx;
+  border-bottom: 2rpx solid rgba(207, 186, 151, 0.52);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.setting-row.last {
+  border-bottom: none;
+}
+
+.row-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 34rpx;
+  flex-shrink: 0;
+}
+
+.row-label {
+  color: #24291d;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  white-space: nowrap;
+}
+
+.row-value {
+  margin-left: auto;
+  color: #8a837a;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  white-space: nowrap;
+}
+
+.arrow-icon {
+  width: 28rpx;
+  height: 42rpx;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.switch-wrap {
+  width: 78rpx;
+  height: 44rpx;
+  margin-left: auto;
+  border-radius: 24rpx;
+  background: #d8d1bd;
+  display: flex;
+  align-items: center;
+  padding: 4rpx;
+  box-sizing: border-box;
+  transition: background 0.2s ease;
+}
+
+.switch-wrap.on {
+  background: #69784d;
+  justify-content: flex-end;
+}
+
+.switch-dot {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  background: #fffdf6;
+  box-shadow: 0 2rpx 8rpx rgba(72, 62, 42, 0.18);
+}
+
+/* 退出按钮：控制按钮样式。 */
+.logout-btn {
+  height: 82rpx;
+  margin-top: 46rpx;
+  border: 2rpx solid #b9682c;
+  border-radius: 44rpx;
+  color: #b9682c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  line-height: 44rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+  box-sizing: border-box;
+}
+
+@media (max-width: 360px) {
+  .settings-page {
+    padding-left: 22rpx;
+    padding-right: 22rpx;
+  }
+
+  .setting-row {
+    padding-left: 26rpx;
+    padding-right: 22rpx;
+  }
+
+  .row-icon {
+    margin-right: 26rpx;
+  }
+
+  .row-label {
+    font-size: 28rpx;
+  }
+}

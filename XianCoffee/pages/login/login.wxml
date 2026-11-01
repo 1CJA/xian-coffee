@@ -1,0 +1,80 @@
+<!-- 登录注册页结构：展示登录注册表单和品牌图片区。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="login-page">
+  <view class="page-card">
+    <view class="top-row">
+      <view class="status-space"></view>
+    </view>
+
+    <!-- 门店图片区：展示登录页主图。 -->
+    <view class="store-wrap">
+      <image class="store-image" src="{{storeImage}}" mode="widthFix"></image>
+    </view>
+
+    <!-- 欢迎文案区：展示品牌提示。 -->
+    <view class="welcome-copy">
+      <text class="welcome-title">欢迎来到栖岸咖啡</text>
+      <view class="welcome-subrow">
+        <image class="mini-leaf left-mini-leaf" src="{{leafImage}}" mode="aspectFit"></image>
+        <text class="welcome-subtitle">一杯好咖啡，慢享好时光</text>
+        <image class="mini-leaf right-mini-leaf" src="{{leafImage}}" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 登录注册切换区。 -->
+    <view class="tabs">
+      <view class="tab-item {{mode === 'login' ? 'active' : ''}}" bindtap="switchMode" data-mode="login">
+        <text>登录</text>
+        <view class="tab-line"></view>
+      </view>
+      <view class="tab-item {{mode === 'register' ? 'active' : ''}}" bindtap="switchMode" data-mode="register">
+        <text>注册</text>
+        <view class="tab-line"></view>
+      </view>
+    </view>
+
+    <!-- 表单输入区：填写账号密码。 -->
+    <view class="form-box">
+      <view class="input-row">
+        <image class="field-icon phone-icon" src="http://localhost:2544/images/miniprogram/login/phone-icon.png" mode="aspectFit"></image>
+        <input class="field-input" value="{{form.phone}}" type="number" maxlength="11" placeholder="请输入手机号" placeholder-class="placeholder" bindinput="handlePhoneInput" />
+      </view>
+
+      <view class="input-row" wx:if="{{mode === 'register'}}">
+        <image class="field-icon user-icon" src="http://localhost:2544/images/miniprogram/login/user-icon.png" mode="aspectFit"></image>
+        <input class="field-input" value="{{form.nickname}}" placeholder="请输入昵称" placeholder-class="placeholder" bindinput="handleNicknameInput" />
+      </view>
+
+      <view class="input-row">
+        <image class="field-icon lock-icon" src="http://localhost:2544/images/miniprogram/login/lock-icon.png" mode="aspectFit"></image>
+        <input class="field-input" value="{{form.password}}" password="{{!showPassword}}" placeholder="请输入密码" placeholder-class="placeholder" bindinput="handlePasswordInput" />
+        <image class="eye-button {{showPassword ? 'visible' : ''}}" src="http://localhost:2544/images/miniprogram/login/eye-icon.png" mode="aspectFit" bindtap="togglePassword"></image>
+      </view>
+
+      <view class="input-row" wx:if="{{mode === 'register'}}">
+        <image class="field-icon lock-icon" src="http://localhost:2544/images/miniprogram/login/lock-icon.png" mode="aspectFit"></image>
+        <input class="field-input" value="{{form.confirmPassword}}" password="{{!showConfirmPassword}}" placeholder="请再次输入密码" placeholder-class="placeholder" bindinput="handleConfirmPasswordInput" />
+        <image class="eye-button {{showConfirmPassword ? 'visible' : ''}}" src="http://localhost:2544/images/miniprogram/login/eye-icon.png" mode="aspectFit" bindtap="toggleConfirmPassword"></image>
+      </view>
+    </view>
+
+    <!-- 登录辅助区：记住密码等。 -->
+    <view class="assist-row" wx:if="{{mode === 'login'}}">
+      <view class="remember" bindtap="toggleRemember">
+        <view class="check-dot {{remember ? 'checked' : ''}}">{{remember ? '✓' : ''}}</view>
+        <text>记住密码</text>
+      </view>
+      <text class="forgot" bindtap="handleForgot">忘记密码?</text>
+    </view>
+
+    <!-- 提交按钮：执行登录注册。 -->
+    <button class="submit-button" hover-class="submit-hover" bindtap="submitForm">{{mode === 'login' ? '登录' : '注册'}}</button>
+
+    <!-- 协议确认区：控制提交权限。 -->
+    <view class="agreement" bindtap="toggleAgreement">
+      <view class="check-dot {{agreed ? 'checked' : ''}}">{{agreed ? '✓' : ''}}</view>
+      <text>我已阅读并同意《用户协议》和《隐私政策》</text>
+    </view>
+  </view>
+</view>

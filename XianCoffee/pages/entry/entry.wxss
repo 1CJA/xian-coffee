@@ -1,0 +1,301 @@
+/* 功能入口页样式：控制首页入口、轮播和导航布局。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.entry-page {
+  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.entry-card {
+  width: 100%;
+  min-height: 100vh;
+  padding: 78rpx 42rpx 210rpx;
+  box-sizing: border-box;
+  border-radius: 0;
+  background: #F4EAD9;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24rpx;
+}
+
+.leaf-img {
+  width: 46rpx;
+  height: 62rpx;
+  flex-shrink: 0;
+}
+
+.left-leaf-img {
+  transform: rotate(-12deg);
+}
+
+.right-leaf-img {
+  transform: scaleX(-1) rotate(-12deg);
+}
+
+.main-title {
+  color: #46502e;
+  font-size: 42rpx;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 8rpx;
+}
+
+.storefront-wrap {
+  width: 150%;
+  margin-top: 42rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.storefront-image {
+  width: 960rpx;
+  max-width: 116%;
+  display: block;
+}
+.promo-swiper {
+  width: 100%;
+  height: 244rpx;
+  margin-top: 30rpx;
+  border-radius: 26rpx;
+  overflow: hidden;
+  background: #fbf4e6;
+  box-shadow: 0 12rpx 26rpx rgba(84, 70, 44, 0.08);
+}
+
+.promo-slide {
+  width: 100%;
+  height: 244rpx;
+  overflow: hidden;
+  border-radius: 26rpx;
+}
+
+.promo-image {
+  width: 100%;
+  height: 244rpx;
+  display: block;
+}
+
+/* 订单区域：控制订单卡片、状态和商品明细。 */
+/* 订单区域：控制订单卡片、状态和明细布局。 */
+.order-row {
+  width: 100%;
+  margin-top: 36rpx;
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.order-card {
+  flex: 1;
+  min-width: 0;
+  height: 252rpx;
+  border: 2rpx solid rgba(75, 79, 49, 0.48);
+  border-radius: 104rpx 104rpx 22rpx 22rpx;
+  overflow: hidden;
+  background: #fbf4e6;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-visual {
+  height: 126rpx;
+  border-radius: 104rpx 104rpx 0 0;
+  background: #879069;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+}
+
+.order-image {
+  width: 172rpx;
+  height: 132rpx;
+  margin-bottom: -14rpx;
+}
+
+.order-copy {
+  flex: 1;
+  padding-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-name {
+  color: #4d5631;
+  font-size: 32rpx;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 2rpx;
+}
+
+.order-en {
+  margin-top: 16rpx;
+  color: #5c6047;
+  font-size: 18rpx;
+  line-height: 1;
+  letter-spacing: 4rpx;
+}
+
+.small-line,
+.wide-line {
+  margin-top: 20rpx;
+  width: 34rpx;
+  height: 2rpx;
+  background: #4e5634;
+}
+
+.wide-card {
+  position: relative;
+  width: 100%;
+  height: 174rpx;
+  margin-top: 30rpx;
+  border-radius: 24rpx;
+  background: #879069;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 32rpx 36rpx;
+}
+
+.wide-card::after {
+  content: '';
+  position: absolute;
+  left: 260rpx;
+  bottom: -22rpx;
+  width: 210rpx;
+  height: 180rpx;
+  opacity: 0.12;
+  border-radius: 50%;
+  border-left: 10rpx solid #657051;
+  transform: rotate(-32deg);
+}
+
+.wide-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wide-title {
+  color: #42492c;
+  font-size: 34rpx;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 4rpx;
+}
+
+.wide-en {
+  margin-top: 20rpx;
+  color: #4d5631;
+  font-size: 18rpx;
+  line-height: 1;
+  letter-spacing: 4rpx;
+}
+
+.vip-image {
+  position: relative;
+  z-index: 1;
+  width: 284rpx;
+  height: 142rpx;
+}
+
+/* 集点区域：控制集点卡、圆点和记录列表。 */
+.stamp-image {
+  position: relative;
+  z-index: 1;
+  width: 284rpx;
+  height: 152rpx;
+}
+
+@media (max-height: 700px) {
+  .entry-card {
+    padding-top: 42rpx;
+    padding-bottom: 190rpx;
+  }
+
+  .storefront-wrap {
+    margin-top: 28rpx;
+  }
+
+  .storefront-image {
+    width: 750rpx;
+  }
+
+  .promo-swiper,
+  .promo-slide,
+  .promo-image {
+    height: 218rpx;
+  }
+
+  .order-row {
+    margin-top: 24rpx;
+  }
+
+  .wide-card {
+    margin-top: 22rpx;
+    height: 150rpx;
+  }
+}
+/* 底部导航：控制 tab 图标、文字和选中状态。 */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150rpx;
+  padding: 18rpx 34rpx calc(16rpx + env(safe-area-inset-bottom));
+  border-radius: 44rpx 44rpx 0 0;
+  border-top: 2rpx solid rgba(205, 187, 151, 0.46);
+  background: #fff8ea;
+  box-shadow: 0 -10rpx 28rpx rgba(84, 70, 44, 0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 40;
+}
+
+.nav-item {
+  width: 112rpx;
+  height: 104rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5e5847;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  color: #4f5e40;
+  font-weight: 900;
+}
+
+.nav-icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-bottom: 8rpx;
+  flex-shrink: 0;
+}

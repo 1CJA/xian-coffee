@@ -1,0 +1,557 @@
+/* 菜单点单页样式：控制分类栏、商品卡片和底部结算。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #3f422e;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.menu-page {
+  min-height: 100vh;
+  padding: 72rpx 30rpx 430rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+/* 顶部区域：控制标题、品牌和右侧操作的排版。 */
+/* 顶部区域：控制标题、品牌和操作入口排版。 */
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+}
+
+/* 品牌元素：控制 logo、标题和英文标识样式。 */
+.brand-area {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.brand-leaf {
+  width: 54rpx;
+  height: 76rpx;
+  margin-right: 18rpx;
+  flex-shrink: 0;
+}
+
+.brand-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  color: #45492d;
+  font-size: 42rpx;
+  line-height: 48rpx;
+  font-weight: 900;
+  letter-spacing: 8rpx;
+  white-space: nowrap;
+}
+
+.brand-en {
+  margin-top: 8rpx;
+  color: #52553d;
+  font-size: 18rpx;
+  line-height: 24rpx;
+  letter-spacing: 6rpx;
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  flex-shrink: 0;
+}
+
+/* 门店区域：控制门店图片、地址和营业信息。 */
+.store-select {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.store-name {
+  color: #484b34;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  white-space: nowrap;
+}
+
+.down-icon {
+  color: #4a4e34;
+  font-size: 26rpx;
+  line-height: 26rpx;
+}
+
+.pin-icon {
+  position: relative;
+  width: 26rpx;
+  height: 34rpx;
+  border: 4rpx solid #4a4e34;
+  border-radius: 18rpx 18rpx 18rpx 4rpx;
+  box-sizing: border-box;
+  transform: rotate(-45deg);
+}
+
+.pin-icon::after {
+  content: '';
+  position: absolute;
+  left: 5rpx;
+  top: 5rpx;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #4a4e34;
+}
+
+.bell-icon {
+  position: relative;
+  width: 34rpx;
+  height: 38rpx;
+  border: 4rpx solid #4a4e34;
+  border-bottom: 0;
+  border-radius: 20rpx 20rpx 8rpx 8rpx;
+  box-sizing: border-box;
+}
+
+.bell-icon::before {
+  content: '';
+  position: absolute;
+  left: 9rpx;
+  top: -10rpx;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #4a4e34;
+}
+
+.bell-icon::after {
+  content: '';
+  position: absolute;
+  left: -6rpx;
+  bottom: -8rpx;
+  width: 38rpx;
+  height: 4rpx;
+  border-radius: 4rpx;
+  background: #4a4e34;
+}
+
+/* 搜索区域：控制搜索框、图标和占位文字样式。 */
+/* 搜索区域：控制搜索框、图标和占位文字。 */
+.search-box {
+  height: 70rpx;
+  margin-top: 34rpx;
+  border: 2rpx solid rgba(91, 80, 54, 0.46);
+  border-radius: 38rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+  background: rgba(255, 248, 235, 0.26);
+}
+
+.search-icon {
+  position: relative;
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 22rpx;
+  border: 4rpx solid #454934;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.search-icon::after {
+  content: '';
+  position: absolute;
+  right: -12rpx;
+  bottom: -9rpx;
+  width: 16rpx;
+  height: 4rpx;
+  border-radius: 4rpx;
+  background: #454934;
+  transform: rotate(45deg);
+}
+
+.search-placeholder {
+  color: #8d806d;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  letter-spacing: 1rpx;
+}
+
+.hero-store {
+  width: 960rpx;
+  max-width: 115%;
+  margin-top: 20rpx;
+  display: block;
+}
+
+.slogan {
+  margin-top: 8rpx;
+  color: #51513a;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  text-align: center;
+  letter-spacing: 6rpx;
+}
+
+/* 分类区域：控制分类标签和选中状态。 */
+.category-tabs {
+  margin-top: 24rpx;
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-tab {
+  position: relative;
+  min-width: 118rpx;
+  height: 56rpx;
+  padding: 0 24rpx;
+  border-radius: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #3f422d;
+  font-size: 30rpx;
+  line-height: 56rpx;
+  font-weight: 800;
+}
+
+.category-tab.active {
+  color: #fff7e9;
+  background: #758360;
+}
+
+.category-tab.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -14rpx;
+  width: 32rpx;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background: #758360;
+  transform: translateX(-50%);
+}
+
+/* 商品区域：控制商品图片、信息、价格和按钮样式。 */
+/* 商品区域：控制商品图片、信息、价格和按钮。 */
+.product-area {
+  position: relative;
+  margin-top: 20rpx;
+  padding-bottom: 0rpx;
+}
+
+.product-list {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.product-card {
+  position: relative;
+  min-height: 154rpx;
+  border: 2rpx solid rgba(202, 180, 144, 0.72);
+  border-radius: 24rpx;
+  background: rgba(255, 248, 236, 0.52);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 220rpx;
+  height: 144rpx;
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+.product-info {
+  flex: 1;
+  min-width: 0;
+  padding: 24rpx 170rpx 20rpx 4rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  color: #3f422d;
+  font-size: 30rpx;
+  line-height: 38rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.product-desc {
+  margin-top: 10rpx;
+  color: #7b705f;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  margin-top: 14rpx;
+  color: #3d3d2d;
+  font-size: 30rpx;
+  line-height: 34rpx;
+  font-weight: 800;
+}
+
+.product-tag {
+  position: absolute;
+  right: 26rpx;
+  top: 22rpx;
+  height: 34rpx;
+  min-width: 78rpx;
+  padding: 0 16rpx;
+  border-radius: 20rpx;
+  background: rgba(224, 205, 169, 0.8);
+  color: #97713c;
+  font-size: 20rpx;
+  line-height: 34rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.quantity-control {
+  position: absolute;
+  right: 24rpx;
+  bottom: 28rpx;
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+}
+
+.quantity-btn {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  line-height: 44rpx;
+  font-weight: 700;
+}
+
+.quantity-btn.minus {
+  border: 2rpx solid #b69052;
+  color: #8b6935;
+  background: rgba(255, 249, 237, 0.78);
+}
+
+.quantity-btn.plus {
+  color: #fff8ee;
+  background: #758360;
+}
+
+.quantity-num {
+  min-width: 24rpx;
+  color: #42442f;
+  font-size: 30rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.add-button {
+  position: absolute;
+  right: 26rpx;
+  bottom: 30rpx;
+  width: 116rpx;
+  height: 54rpx;
+  border-radius: 28rpx;
+  background: #758360;
+  color: #fff9ee;
+  font-size: 28rpx;
+  line-height: 54rpx;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* 购物袋区域：控制底部金额、数量和结算按钮。 */
+.cart-bar {
+  position: fixed;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: calc(100rpx + env(safe-area-inset-bottom));
+  z-index: 35;
+  height: 116rpx;
+  border-radius: 58rpx;
+  background: #758360;
+  box-shadow: 0 16rpx 34rpx rgba(68, 78, 49, 0.26);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 44rpx;
+  box-sizing: border-box;
+}
+
+.cart-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.bag-icon {
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  border: 4rpx solid rgba(255, 249, 235, 0.9);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.bag-icon::after {
+  content: '';
+  position: absolute;
+  left: 20rpx;
+  top: 26rpx;
+  width: 26rpx;
+  height: 24rpx;
+  border: 3rpx solid rgba(255, 249, 235, 0.95);
+  border-top: 0;
+  border-radius: 0 0 5rpx 5rpx;
+  box-sizing: border-box;
+}
+
+.bag-handle {
+  position: absolute;
+  left: 25rpx;
+  top: 19rpx;
+  width: 14rpx;
+  height: 12rpx;
+  border: 3rpx solid rgba(255, 249, 235, 0.95);
+  border-bottom: 0;
+  border-radius: 12rpx 12rpx 0 0;
+  box-sizing: border-box;
+}
+
+.cart-count {
+  position: absolute;
+  right: -8rpx;
+  top: -12rpx;
+  min-width: 30rpx;
+  height: 30rpx;
+  padding: 0 8rpx;
+  border-radius: 18rpx;
+  background: #fff9ed;
+  color: #758360;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cart-copy {
+  margin-left: 28rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-price {
+  color: #fff8ec;
+  font-size: 30rpx;
+  line-height: 38rpx;
+  font-weight: 900;
+}
+
+.cart-link {
+  margin-top: 4rpx;
+  color: rgba(255, 248, 236, 0.92);
+  font-size: 22rpx;
+  line-height: 28rpx;
+}
+
+.checkout-button {
+  width: 194rpx;
+  height: 72rpx;
+  border-radius: 38rpx;
+  background: #efe4cb;
+  color: #4b4d35;
+  font-size: 32rpx;
+  line-height: 72rpx;
+  font-weight: 900;
+  text-align: center;
+}
+
+@media (max-width: 360px) {
+  .brand-title {
+    font-size: 36rpx;
+    letter-spacing: 5rpx;
+  }
+
+  .store-name {
+    font-size: 22rpx;
+  }
+
+  .product-image {
+    width: 190rpx;
+  }
+
+  .product-info {
+    padding-right: 142rpx;
+  }
+
+  .checkout-button {
+    width: 170rpx;
+  }
+}
+/* 底部导航：控制 tab 图标、文字和选中状态。 */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150rpx;
+  padding: 18rpx 34rpx calc(16rpx + env(safe-area-inset-bottom));
+  border-radius: 44rpx 44rpx 0 0;
+  border-top: 2rpx solid rgba(205, 187, 151, 0.46);
+  background: #fff8ea;
+  box-shadow: 0 -10rpx 28rpx rgba(84, 70, 44, 0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 40;
+}
+
+.nav-item {
+  width: 112rpx;
+  height: 104rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5e5847;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  color: #4f5e40;
+  font-weight: 900;
+}
+
+.nav-icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-bottom: 8rpx;
+  flex-shrink: 0;
+}

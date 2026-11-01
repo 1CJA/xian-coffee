@@ -1,0 +1,32 @@
+<!-- 设置页结构：展示设置项列表和退出按钮。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="settings-page">
+  <!-- 顶部导航区：返回和标题。 -->
+  <view class="topbar">
+    <view class="back-btn" bindtap="handleBackTap">
+      <view class="back-arrow"></view>
+    </view>
+    <text class="page-title" bindtap="handleTitleTap">设置</text>
+    <view class="top-placeholder"></view>
+  </view>
+
+  <!-- 设置分组区：展示设置列表。 -->
+  <view wx:for="{{groups}}" wx:key="id" class="setting-section">
+    <text class="section-title">{{item.title}}</text>
+    <view class="setting-card">
+      <view wx:for="{{item.items}}" wx:for-item="row" wx:key="id" class="setting-row {{index === item.items.length - 1 ? 'last' : ''}}" data-id="{{row.id}}" bindtap="handleRowTap">
+        <image class="row-icon" src="{{row.icon}}" mode="aspectFit" data-id="{{row.id}}" catchtap="handleIconTap"></image>
+        <text class="row-label">{{row.label}}</text>
+        <text wx:if="{{row.value}}" class="row-value">{{row.value}}</text>
+        <view wx:if="{{row.switch}}" class="switch-wrap {{soundEnabled ? 'on' : ''}}" data-id="{{row.id}}" catchtap="handleSoundTap">
+          <view class="switch-dot"></view>
+        </view>
+        <image wx:if="{{row.arrow}}" class="arrow-icon" src="{{arrowIcon}}" mode="aspectFit" data-id="{{row.id}}" catchtap="handleArrowTap"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出按钮：清除登录状态。 -->
+  <view class="logout-btn" bindtap="handleLogoutTap">退出登录</view>
+</view>

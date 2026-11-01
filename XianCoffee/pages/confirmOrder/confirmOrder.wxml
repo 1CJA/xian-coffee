@@ -1,0 +1,118 @@
+<!-- 确认订单页结构：展示门店、商品、优惠和支付按钮。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="confirm-page">
+  <view class="phone-panel">
+    <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+    <view class="header-row">
+      <view class="back-btn" bindtap="goBack">‹</view>
+      <view class="page-title" bindtap="handleTitleTap">确认订单</view>
+      <view class="header-placeholder"></view>
+    </view>
+
+    <view class="slogan" bindtap="handleSloganTap">
+      <image class="slogan-leaf left" src="{{leafIcon}}" mode="aspectFit"></image>
+      <text>一杯好咖啡，慢享好时光</text>
+      <image class="slogan-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="section-head">
+      <text>购物清单</text>
+      <view class="clear-btn" bindtap="handleClearTap">
+        <text>清空</text>
+        <image class="clear-icon" src="{{deleteIcon}}" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 订单卡片：展示订单状态、商品明细和操作按钮。 -->
+
+    <!-- 订单卡片：展示订单状态、商品和操作按钮。 -->
+    <view class="order-card">
+      <view wx:for="{{orderItems}}" wx:key="cartItemId" class="order-item {{index === orderItems.length - 1 ? 'last' : ''}}">
+        <view class="item-main">
+          <image class="item-image" src="{{item.image}}" mode="aspectFit"></image>
+          <view class="item-info">
+            <view class="name-row">
+              <text class="item-name">{{item.name}}</text>
+              <text wx:if="{{item.hot}}" class="hot-tag">热</text>
+            </view>
+            <text class="item-spec">{{item.spec}}</text>
+            <text class="item-price">¥{{item.price}}</text>
+          </view>
+          <view class="qty-box">
+            <view class="qty-btn" data-id="{{item.cartItemId}}" bindtap="handleMinusTap">−</view>
+            <text class="qty-num">{{item.quantity}}</text>
+            <view class="qty-btn" data-id="{{item.cartItemId}}" bindtap="handlePlusTap">＋</view>
+          </view>
+        </view>
+        <view class="remark-line" data-id="{{item.cartItemId}}" bindtap="handleItemRemarkTap">
+          <text class="pen-icon">✎</text>
+          <text>{{item.remarkText || "添加单品备注"}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-title" bindtap="handleServiceTitleTap">选择服务方式</view>
+    <view class="service-grid">
+      <view wx:for="{{serviceModes}}" wx:key="id" class="service-card {{serviceMode === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleServiceTap">
+        <image class="service-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <view class="service-copy">
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 门店信息区：展示门店地址、营业时间和电话。 -->
+
+    <!-- 门店信息区：展示地址、营业时间和联系方式。 -->
+    <view class="store-card" bindtap="handleStoreTap">
+      <image class="store-icon" src="{{locationIcon}}" mode="aspectFit"></image>
+      <view class="store-info">
+        <text class="store-title">门店信息</text>
+        <text class="store-name">栖岸咖啡 · 望江路店</text>
+        <text class="store-address">杭州市上城区望江路98号</text>
+      </view>
+      <text class="arrow">›</text>
+    </view>
+
+    <view class="option-card">
+      <view class="option-row" bindtap="handleCouponTap">
+        <image class="option-icon" src="{{couponIcon}}" mode="aspectFit"></image>
+        <text class="option-title">优惠券</text>
+        <text class="option-value">{{couponLabel}}</text>
+        <text class="arrow small">›</text>
+      </view>
+      <view class="option-row points-row">
+        <image class="option-icon" src="{{pointsIcon}}" mode="aspectFit" bindtap="handlePointsTap"></image>
+        <text class="option-title" bindtap="handlePointsTap">会员积分抵扣</text>
+        <text class="option-value" bindtap="handlePointsTap">{{pointsLabel}}</text>
+        <view class="switch-wrap">
+          <view class="mock-switch {{usePoints ? 'active' : ''}}" catchtap="handlePointsTap">
+            <view class="mock-switch-dot"></view>
+          </view>
+        </view>
+      </view>
+      <view class="option-row last" bindtap="handleRemarkTap">
+        <image class="option-icon" src="{{remarkIcon}}" mode="aspectFit"></image>
+        <text class="option-title">配送备注</text>
+        <text class="option-value">{{orderRemarkText}}</text>
+        <text class="arrow small">›</text>
+      </view>
+    </view>
+
+    <view class="summary-card">
+      <view class="summary-left">
+        <view class="price-line"><text>商品金额</text><text>¥{{goodsAmountText}}</text></view>
+        <view class="price-line"><text>优惠券</text><text>- ¥{{couponAmountText}}</text></view>
+        <view class="price-line"><text>积分抵扣</text><text>- ¥{{pointsAmountText}}</text></view>
+        <view class="dash-line"></view>
+        <view class="total-line"><text>合计</text><text>¥{{totalAmountText}}</text></view>
+      </view>
+      <view class="summary-right">
+        <image class="store-image" src="{{storeImage}}" mode="aspectFit" bindtap="handleStoreImageTap"></image>
+        <view class="submit-btn" bindtap="handleSubmitTap">提交订单</view>
+      </view>
+    </view>
+  </view>
+</view>

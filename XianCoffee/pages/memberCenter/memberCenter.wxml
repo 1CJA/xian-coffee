@@ -1,0 +1,105 @@
+<!-- 会员中心页结构：展示会员卡、积分和优惠券入口。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="member-page">
+  <view class="topbar">
+    <view class="top-btn back-btn" bindtap="handleBackTap">
+      <image class="back-icon" src="{{backIcon}}" mode="aspectFit"></image>
+    </view>
+    <text class="top-title">会员中心</text>
+    <view class="top-placeholder"></view>
+  </view>
+
+  <view class="vip-card" bindtap="handleVipCardTap">
+    <view class="card-copy">
+      <text class="card-number">{{memberInfo.cardNo}}</text>
+      <text class="brand-name">{{memberInfo.name}}</text>
+      <text class="brand-en">{{memberInfo.enName}}</text>
+      <view class="level-row" bindtap="handleCardPointsTap">
+        <text class="vip-chip">{{memberInfo.level}}</text>
+        <text wx:if="{{memberInfo.levelText}}" class="level-text">{{memberInfo.levelText}}</text>
+      </view>
+      <text class="life-text">栖岸生活　慢享时光</text>
+    </view>
+    <image class="card-coffee" src="{{coffeeImage}}" mode="aspectFit"></image>
+    <view class="points-block" bindtap="handleCardPointsTap">
+      <text class="points-label">可用积分</text>
+      <view class="points-line">
+        <text class="points-number">{{memberInfo.points}}</text>
+        <text class="points-unit">分</text>
+        <text class="points-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="asset-strip">
+    <view wx:for="{{assets}}" wx:key="id" class="asset-item" data-id="{{item.id}}" bindtap="handleAssetTap">
+      <image class="asset-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <view class="asset-copy">
+        <text class="asset-label">{{item.label}}</text>
+        <text class="asset-value">{{item.value}}</text>
+      </view>
+      
+    </view>
+  </view>
+
+  <view class="feature-grid">
+    <view class="feature-card" bindtap="handleStampTap">
+      <view class="feature-head">
+        <view>
+          <text class="feature-title">集章卡</text>
+          <text class="feature-subtitle">集章兑好礼</text>
+        </view>
+        <text class="feature-arrow">›</text>
+      </view>
+      <image class="stamp-image" src="{{stampImage}}" mode="aspectFit"></image>
+    </view>
+    <view class="feature-card" bindtap="handleBenefitTap">
+      <view class="feature-head">
+        <view>
+          <text class="feature-title">会员权益</text>
+          <text class="feature-subtitle">尊享专属权益</text>
+        </view>
+        <text class="feature-arrow">›</text>
+      </view>
+      <image class="benefit-image" src="{{benefitImage}}" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <view class="member-day" bindtap="handleMemberDayTap">
+    <view class="member-day-copy">
+      <text class="member-day-title">会员专享日</text>
+      <view class="discount-line">
+        <text>每月15日</text>
+        <text>全场饮品</text>
+        <text class="discount-number">9</text>
+        <text>折</text>
+      </view>
+      <view class="detail-pill" catchtap="handleMemberDayDetailTap">查看详情 ›</view>
+    </view>
+    <image class="member-day-image" src="{{memberDayImage}}" mode="aspectFit"></image>
+  </view>
+
+  <view class="orders-section">
+    <view class="section-head">
+      <text class="section-title">我的订单</text>
+      <view class="all-orders" bindtap="handleAllOrdersTap">全部订单 ›</view>
+    </view>
+    <view class="status-row">
+      <view wx:for="{{orderStatus}}" wx:key="id" class="status-item" data-id="{{item.id}}" bindtap="handleOrderStatusTap">
+        <image class="status-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部导航栏：在首页、菜单、订单、个人中心之间切换。 -->
+
+  <!-- 底部导航栏：切换主要功能页面。 -->
+  <view class="bottom-nav">
+    <view wx:for="{{navItems}}" wx:key="id" class="nav-item {{item.id === activeNav ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleNavTap">
+      <image class="nav-icon" src="{{item.id === activeNav ? item.activeIcon : item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>

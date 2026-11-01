@@ -1,0 +1,485 @@
+/* 集点卡页样式：控制集点卡、圆点和记录列表。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #414631;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.stamp-page {
+  min-height: 100vh;
+  padding: 70rpx 20rpx 42rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+/* 集点区域：控制集点卡、圆点和记录列表。 */
+.stamp-shell {
+  min-height: calc(100vh - 90rpx);
+  padding: 0 10rpx 34rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.stamp-topbar {
+  height: 74rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-back,
+.top-space {
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.page-title {
+  color: #3f442f;
+  font-size: 38rpx;
+  line-height: 48rpx;
+  font-weight: 900;
+  letter-spacing: 4rpx;
+}
+
+/* 品牌元素：控制 logo、标题和英文标识样式。 */
+.brand-section {
+  position: relative;
+  height: 282rpx;
+  margin-top: 14rpx;
+}
+
+.brand-left {
+  position: absolute;
+  left: 8rpx;
+  top: 54rpx;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.brand-logo {
+  width: 92rpx;
+  height: 92rpx;
+  margin-right: 20rpx;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  color: #414631;
+  font-size: 36rpx;
+  line-height: 44rpx;
+  font-weight: 900;
+  letter-spacing: 7rpx;
+  white-space: nowrap;
+}
+
+.brand-en {
+  margin-top: 5rpx;
+  color: #414631;
+  font-size: 19rpx;
+  line-height: 26rpx;
+  letter-spacing: 8rpx;
+  white-space: nowrap;
+}
+
+/* 门店区域：控制门店图片、地址和营业信息。 */
+.store-image {
+  position: absolute;
+  right: -4rpx;
+  top: 18rpx;
+  width: 348rpx;
+  height: 218rpx;
+  z-index: 1;
+}
+
+.slogan-row {
+  position: absolute;
+  left: 48rpx;
+  bottom: 18rpx;
+  height: 34rpx;
+  display: flex;
+  align-items: center;
+  color: #586047;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  letter-spacing: 3rpx;
+  z-index: 4;
+}
+
+.tiny-leaf,
+.section-leaf,
+.promo-leaf {
+  width: 36rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.tiny-leaf.right,
+.promo-leaf.right {
+  margin: 0 0 0 12rpx;
+  transform: scaleX(-1);
+}
+
+.stamp-card {
+  overflow: hidden;
+  border-radius: 18rpx;
+  border: 2rpx solid #76815f;
+  background: #788462;
+}
+
+.stamp-card-head {
+  height: 132rpx;
+  padding: 26rpx 28rpx 16rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #fff8ec;
+}
+
+.promo-line {
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  line-height: 44rpx;
+  font-weight: 900;
+  letter-spacing: 4rpx;
+  white-space: nowrap;
+}
+
+.promo-leaf {
+  filter: brightness(1.85);
+}
+
+.promo-subtitle {
+  display: block;
+  width: 470rpx;
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  line-height: 28rpx;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.progress-pill {
+  width: 180rpx;
+  height: 58rpx;
+  padding: 0 18rpx;
+  border: 3rpx solid rgba(255, 250, 239, 0.88);
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff8ec;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  font-weight: 800;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.stamp-board {
+  position: relative;
+  height: 350rpx;
+  padding: 34rpx 24rpx 30rpx;
+  border-radius: 18rpx 18rpx 0 0;
+  background: #fff8ea;
+  box-sizing: border-box;
+}
+
+.stamp-grid {
+  width: 418rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 24rpx 24rpx;
+}
+
+.stamp-cell {
+  width: 82rpx;
+  height: 82rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stamp-icon {
+  width: 82rpx;
+  height: 82rpx;
+}
+
+.stamp-icon.empty {
+  opacity: 0.76;
+}
+
+.reward-box {
+  position: absolute;
+  right: 18rpx;
+  top: 34rpx;
+  width: 210rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reward-coffee {
+  width: 202rpx;
+  height: 154rpx;
+}
+
+.reward-ribbon {
+  width: 184rpx;
+  height: 48rpx;
+  margin-top: 8rpx;
+  border-radius: 10rpx;
+  background: #ead59c;
+  color: #695b35;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 3rpx;
+}
+
+.reward-text {
+  margin-top: 12rpx;
+  color: #625c46;
+  font-size: 22rpx;
+  line-height: 28rpx;
+  letter-spacing: 1rpx;
+}
+
+.rule-card,
+.record-card {
+  margin-top: 26rpx;
+  padding: 28rpx 30rpx;
+  border: 2rpx solid rgba(204, 181, 139, 0.66);
+  border-radius: 22rpx;
+  background: rgba(255, 250, 239, 0.44);
+  box-sizing: border-box;
+}
+
+.rule-card {
+  position: relative;
+  min-height: 304rpx;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  color: #414631;
+  font-size: 33rpx;
+  line-height: 42rpx;
+  font-weight: 900;
+  letter-spacing: 3rpx;
+}
+
+.section-title-row.compact {
+  font-size: 33rpx;
+}
+
+.section-leaf {
+  margin-right: 14rpx;
+}
+
+.dash-line {
+  width: 360rpx;
+  height: 2rpx;
+  margin: 20rpx 0 22rpx;
+  background-image: linear-gradient(to right, rgba(130, 126, 92, 0.46) 0, rgba(130, 126, 92, 0.46) 12rpx, transparent 12rpx, transparent 24rpx);
+  background-size: 24rpx 2rpx;
+}
+
+.rule-list {
+  position: relative;
+  z-index: 2;
+  width: 420rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 23rpx;
+}
+
+.rule-item {
+  display: flex;
+  align-items: center;
+  color: #5b5a45;
+  font-size: 25rpx;
+  line-height: 34rpx;
+}
+
+.rule-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 22rpx;
+  flex-shrink: 0;
+}
+
+.rule-bag {
+  position: absolute;
+  right: 10rpx;
+  bottom: 16rpx;
+  width: 248rpx;
+  height: 190rpx;
+  z-index: 1;
+}
+
+.record-card {
+  padding: 28rpx 28rpx 26rpx;
+}
+
+.record-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.all-record {
+  color: #6f6855;
+  font-size: 23rpx;
+  line-height: 32rpx;
+}
+
+.record-list {
+  margin-top: 20rpx;
+  border: 2rpx solid rgba(210, 190, 151, 0.48);
+  border-radius: 18rpx;
+  overflow: hidden;
+}
+
+.record-item {
+  min-height: 100rpx;
+  padding: 16rpx 24rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.record-item + .record-item {
+  border-top: 2rpx solid rgba(210, 190, 151, 0.48);
+}
+
+.record-badge {
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  background: #7b8864;
+  color: #fff8ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  line-height: 34rpx;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.record-badge.gift {
+  background: #efe4ca;
+}
+
+.record-gift {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.record-copy {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.record-title {
+  color: #4e523d;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  font-weight: 800;
+}
+
+.record-time {
+  margin-top: 4rpx;
+  color: #817866;
+  font-size: 21rpx;
+  line-height: 28rpx;
+}
+
+.record-result {
+  color: #5b5a45;
+  font-size: 23rpx;
+  line-height: 32rpx;
+  flex-shrink: 0;
+}
+
+.drink-btn {
+  height: 92rpx;
+  margin: 34rpx 36rpx 0;
+  border-radius: 999rpx;
+  background: #75825f;
+  color: #fff8ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  line-height: 44rpx;
+  font-weight: 900;
+  letter-spacing: 3rpx;
+}
+
+.drink-icon {
+  width: 70rpx;
+  height: 54rpx;
+  margin-right: 26rpx;
+  filter: brightness(2.1);
+}
+
+@media (max-width: 360px) {
+  .stamp-page {
+    padding-left: 12rpx;
+    padding-right: 12rpx;
+  }
+
+  .stamp-shell {
+    padding-left: 8rpx;
+    padding-right: 8rpx;
+  }
+
+  .store-image {
+    width: 322rpx;
+  }
+
+  .stamp-grid {
+    width: 388rpx;
+    gap: 22rpx 20rpx;
+  }
+
+  .stamp-cell,
+  .stamp-icon {
+    width: 76rpx;
+    height: 76rpx;
+  }
+
+  .reward-box {
+    right: 10rpx;
+    width: 190rpx;
+  }
+
+  .reward-coffee {
+    width: 180rpx;
+  }
+}

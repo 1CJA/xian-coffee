@@ -1,0 +1,322 @@
+/* 登录注册页样式：控制表单、按钮和页面视觉布局。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.login-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0;
+  background: #F4EAD9;
+}
+
+.page-card {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 86rpx 48rpx 48rpx;
+  background: #F4EAD9;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-row {
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button {
+  width: 46rpx;
+  height: 46rpx;
+  display: block;
+}
+
+.status-space {
+  width: 160rpx;
+  height: 56rpx;
+}
+
+/* 门店区域：控制门店图片、地址和营业信息。 */
+/* 门店图片区：控制主图大小。 */
+.store-wrap {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.store-image {
+  width: 630rpx;
+  display: block;
+}
+
+/* 欢迎文案区：控制标题间距。 */
+.welcome-copy {
+  margin-top: 42rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-title {
+  color: #40502e;
+  font-size: 42rpx;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 6rpx;
+}
+
+.welcome-subrow {
+  margin-top: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rpx;
+}
+
+.mini-leaf {
+  width: 36rpx;
+  height: 46rpx;
+}
+
+.left-mini-leaf {
+  transform: rotate(-12deg);
+}
+
+.right-mini-leaf {
+  transform: scaleX(-1) rotate(-12deg);
+}
+
+.welcome-subtitle {
+  color: #6f6457;
+  font-size: 28rpx;
+  letter-spacing: 4rpx;
+}
+
+/* 登录切换区：控制选中样式。 */
+.tabs {
+  margin-top: 62rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 标签切换：控制订单、优惠券等状态切换样式。 */
+.tab-item {
+  min-width: 170rpx;
+  color: #7c7163;
+  font-size: 34rpx;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.tab-item.active {
+  color: #40502e;
+  font-weight: 800;
+}
+
+.tab-line {
+  width: 46rpx;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background: transparent;
+}
+
+.tab-item.active .tab-line {
+  background: #60754e;
+}
+
+/* 表单区域：控制输入框、标签和表单分组。 */
+/* 表单区域：控制输入框布局。 */
+.form-box {
+  margin-top: 42rpx;
+  border: 2rpx solid rgba(95, 86, 72, 0.16);
+  border-radius: 22rpx;
+  overflow: hidden;
+  background: rgba(255, 250, 241, 0.28);
+}
+
+.input-row {
+  min-height: 96rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid rgba(95, 86, 72, 0.12);
+}
+
+.input-row:last-child {
+  border-bottom: 0;
+}
+
+.field-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 28rpx;
+  flex-shrink: 0;
+  display: block;
+}
+
+.phone-icon {
+  width: 34rpx;
+  height: 48rpx;
+}
+
+
+
+.user-icon {
+  width: 42rpx;
+  height: 48rpx;
+}
+
+.lock-icon {
+  width: 42rpx;
+  height: 48rpx;
+}
+
+.field-input {
+  flex: 1;
+  min-width: 0;
+  height: 96rpx;
+  color: #3a332c;
+  font-size: 28rpx;
+}
+
+.placeholder {
+  color: #9f9488;
+}
+
+.eye-button {
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+  display: block;
+  opacity: 0.82;
+}
+
+.eye-button.visible {
+  opacity: 1;
+}
+
+.assist-row {
+  margin-top: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #40502e;
+  font-size: 28rpx;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+}
+
+.agreement {
+  display: flex;
+  margin-top: 54rpx;
+  justify-content: center;
+  align-items: flex-start;
+  color: #7c7163;
+  font-size: 24rpx;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.check-dot {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 14rpx;
+  border-radius: 50%;
+  border: 2rpx solid #6f7f5f;
+  color: #ffffff;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.check-dot.checked {
+  background: #6f7f5f;
+}
+
+.forgot {
+  color: #40502e;
+}
+
+/* 提交区域：控制底部主按钮和固定栏。 */
+.submit-button {
+  margin: 56rpx auto 0;
+  width: 420rpx;
+  height: 88rpx;
+  padding: 0;
+  border-radius: 46rpx;
+  background: #6e7f5b;
+  color: #ffffff;
+  font-size: 34rpx;
+  font-weight: 700;
+  line-height: normal;
+  box-shadow: 0 14rpx 28rpx rgba(78, 92, 63, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button::after {
+  border: 0;
+}
+
+.submit-hover {
+  background: #60724f;
+}
+
+@media (max-height: 700px) {
+  .page-card {
+    padding-top: 44rpx;
+    padding-bottom: 34rpx;
+  }
+
+  .store-wrap {
+    margin-top: 18rpx;
+  }
+
+  .store-image {
+    width: 540rpx;
+  }
+
+  .welcome-copy {
+    margin-top: 24rpx;
+  }
+
+  .tabs {
+    margin-top: 36rpx;
+  }
+
+  .form-box {
+    margin-top: 26rpx;
+  }
+
+  .submit-button {
+    margin: 34rpx auto 0;
+  }
+
+  .agreement {
+    margin-top: 32rpx;
+  }
+}
+.agreement text {
+  flex: 0 1 auto;
+  line-height: 34rpx;
+}
+
+.remember text {
+  line-height: 34rpx;
+}

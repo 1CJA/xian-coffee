@@ -1,0 +1,116 @@
+<!-- 购物袋页结构：展示商品列表、优惠抵扣和结算栏。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="cart-page">
+  <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+  <view class="cart-header">
+    <view class="brand-wrap" bindtap="handleBrandTap">
+      <image class="brand-leaf brand-back" src="{{backIcon}}" mode="aspectFit"></image>
+      <view class="brand-copy">
+        <text class="brand-name">栖岸咖啡</text>
+        <text class="brand-en">-QI'AN COFFEE-</text>
+      </view>
+    </view>
+    <view class="page-title" bindtap="handleTitleTap">
+      <text>购物袋</text>
+      <view class="title-line"></view>
+    </view>
+    <view class="header-actions">
+      <view class="store-select" bindtap="handleStoreTap">
+        <image class="location-icon" src="{{locationIcon}}" mode="aspectFit"></image>
+        <text>上海·静安店</text>
+        <text class="down-icon">⌄</text>
+      </view>
+      <image class="bell-image" src="{{bellIcon}}" mode="aspectFit" bindtap="handleBellTap"></image>
+    </view>
+  </view>
+
+  <view class="delivery-strip" bindtap="handleDeliveryTap">
+    <image class="delivery-img" src="{{deliveryImage}}" mode="aspectFit"></image>
+    <text class="delivery-text">满￥68元免配送费，还差￥{{deliveryGap}}元</text>
+    <text class="delivery-link">去凑单 ›</text>
+  </view>
+
+  <view class="cart-card">
+    <view wx:if="{{cartItems.length === 0}}" class="empty-box" bindtap="handleGoMenuTap">
+      <text class="empty-title">购物袋还是空的</text>
+      <text class="empty-desc">去菜单挑一杯喜欢的咖啡吧</text>
+    </view>
+
+    <scroll-view wx:else class="cart-items-scroll {{needCartScroll ? 'is-scroll' : ''}}" scroll-y="{{needCartScroll}}" enhanced="true" show-scrollbar="false">
+      <view wx:for="{{cartItems}}" wx:key="cartItemId" class="cart-item">
+        <view class="select-dot {{item.checked ? 'checked' : ''}}" data-id="{{item.cartItemId}}" bindtap="handleSelectTap">✓</view>
+        <image class="item-img" src="{{item.image}}" mode="aspectFit" data-id="{{item.cartItemId}}" data-product-id="{{item.productId}}" bindtap="handleProductTap"></image>
+        <view class="item-info" data-id="{{item.cartItemId}}" data-product-id="{{item.productId}}" bindtap="handleProductTap">
+          <text class="item-name">{{item.name}}</text>
+          <text class="item-spec">{{item.spec}}</text>
+          <text class="item-price">¥{{item.price}}</text>
+        </view>
+        <image class="delete-image" src="{{deleteIcon}}" mode="aspectFit" data-id="{{item.cartItemId}}" bindtap="handleDeleteTap"></image>
+        <view class="item-stepper">
+          <view class="step-btn minus" data-id="{{item.cartItemId}}" bindtap="handleMinusTap">−</view>
+          <text class="item-qty">{{item.quantity}}</text>
+          <view class="step-btn plus" data-id="{{item.cartItemId}}" bindtap="handlePlusTap">＋</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section-title" bindtap="handleLikeTitleTap">
+    <image class="section-leaf" src="{{leafImage}}" mode="aspectFit"></image>
+    <text>猜你喜欢</text>
+    <image class="section-leaf right" src="{{leafImage}}" mode="aspectFit"></image>
+  </view>
+
+  <view class="recommend-grid">
+    <view wx:for="{{recommendItems}}" wx:key="id" class="recommend-card" data-id="{{item.id}}" bindtap="handleRecommendTap">
+      <image class="recommend-img" src="{{item.image}}" mode="aspectFit"></image>
+      <text class="recommend-name">{{item.name}}</text>
+      <text class="recommend-desc">{{item.desc}}</text>
+      <text class="recommend-price">¥{{item.price}}</text>
+      <view class="recommend-add" data-id="{{item.id}}" catchtap="handleRecommendAddTap">＋</view>
+    </view>
+  </view>
+
+  <!-- 优惠抵扣区：选择优惠券。 -->
+  <view class="discount-card">
+    <view class="discount-row" bindtap="handleCouponTap">
+      <image class="discount-icon" src="{{couponIcon}}" mode="aspectFit"></image>
+      <text class="discount-title">优惠券</text>
+      <text class="discount-right">暂无可用 ›</text>
+    </view>
+    <view class="discount-row" bindtap="handlePointsTap">
+      <image class="discount-icon points-icon" src="{{pointsIcon}}" mode="aspectFit"></image>
+      <text class="discount-title">会员积分抵扣</text>
+      <text class="points-text">{{pointsText}}</text>
+      <view class="points-switch-wrap">
+        <view class="mock-switch {{usePoints ? 'active' : ''}}" catchtap="handlePointsTap">
+          <view class="mock-switch-dot"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部结算栏：提交订单。 -->
+  <view class="settle-bar">
+    <view class="select-all" bindtap="handleSelectAllTap">
+      <view class="select-dot all {{allChecked ? 'checked' : ''}}">✓</view>
+      <text>全选</text>
+    </view>
+    <view class="total-box" bindtap="handleTotalTap">
+      <text class="total-label">合计金额</text>
+      <text class="total-price">¥{{totalPriceText}}</text>
+      
+    </view>
+    <view class="checkout-btn" bindtap="handleCheckoutTap">去结算</view>
+  </view>
+
+  <!-- 底部导航栏：在首页、菜单、订单、个人中心之间切换。 -->
+
+  <!-- 底部导航栏：切换主要功能页面。 -->
+  <view class="bottom-nav">
+    <view wx:for="{{navItems}}" wx:key="id" class="nav-item {{item.id === activeNav ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleNavTap">
+      <image class="nav-icon" src="{{item.id === activeNav ? item.activeIcon : item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view></view>

@@ -1,0 +1,349 @@
+/* 搜索页面样式：控制搜索栏、分类图标和商品列表。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #3f442f;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+/* 搜索区域：控制搜索框、图标和占位文字。 */
+.search-page {
+  min-height: 100vh;
+  padding: 74rpx 30rpx 42rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+/* 顶部区域：控制标题、品牌和右侧操作的排版。 */
+/* 顶部区域：控制标题、品牌和操作入口排版。 */
+.brand-header {
+  height: 86rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 品牌元素：控制 logo、标题和英文标识样式。 */
+.brand-leaf {
+  width: 52rpx;
+  height: 72rpx;
+  margin-right: 22rpx;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-name {
+  color: #3f442f;
+  font-size: 39rpx;
+  line-height: 46rpx;
+  font-weight: 900;
+  letter-spacing: 7rpx;
+}
+
+.brand-en {
+  margin-top: 4rpx;
+  color: #3f442f;
+  font-size: 19rpx;
+  line-height: 26rpx;
+  letter-spacing: 5rpx;
+}
+
+/* 搜索区域：控制搜索框、图标和占位文字样式。 */
+.search-row {
+  height: 76rpx;
+  margin-top: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  height: 72rpx;
+  padding: 0 34rpx;
+  border: 3rpx solid #6e7158;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 26rpx;
+  border: 4rpx solid #8f8a73;
+  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.search-icon::after {
+  content: '';
+  position: absolute;
+  right: -10rpx;
+  bottom: -7rpx;
+  width: 16rpx;
+  height: 4rpx;
+  border-radius: 999rpx;
+  background: #8f8a73;
+  transform: rotate(45deg);
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 66rpx;
+  color: #4d503d;
+  font-size: 29rpx;
+  line-height: 66rpx;
+}
+
+.search-placeholder {
+  color: #8b8371;
+}
+
+.cancel-btn {
+  width: 96rpx;
+  height: 72rpx;
+  margin-left: 22rpx;
+  color: #4e5e3d;
+  font-size: 31rpx;
+  line-height: 72rpx;
+  font-weight: 900;
+  text-align: right;
+}
+
+.section-block {
+  margin-top: 36rpx;
+}
+
+.section-head,
+.title-with-icon,
+.result-head {
+  display: flex;
+  align-items: center;
+}
+
+.section-head {
+  justify-content: space-between;
+}
+
+.section-title,
+.result-title {
+  color: #3f442f;
+  font-size: 31rpx;
+  line-height: 40rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.trash-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 8rpx;
+}
+
+.keyword-row {
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18rpx 24rpx;
+}
+
+.keyword-pill {
+  min-width: 104rpx;
+  height: 54rpx;
+  padding: 0 30rpx;
+  border-radius: 999rpx;
+  background: rgba(238, 225, 203, 0.78);
+  color: #4e503d;
+  font-size: 25rpx;
+  line-height: 54rpx;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.keyword-pill.hot {
+  min-width: 142rpx;
+}
+
+.fire-icon {
+  width: 38rpx;
+  height: 44rpx;
+  margin-right: 14rpx;
+}
+
+/* 分类区域：控制分类标签和选中状态。 */
+.category-leaf {
+  width: 34rpx;
+  height: 48rpx;
+  margin-right: 14rpx;
+}
+
+.category-row {
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-item {
+  width: 112rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #3f442f;
+  font-size: 25rpx;
+  line-height: 32rpx;
+  font-weight: 700;
+}
+
+.category-icon-wrap {
+  width: 96rpx;
+  height: 96rpx;
+  margin-bottom: 12rpx;
+  border-radius: 50%;
+  background: rgba(228, 215, 189, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-icon {
+  width: 82rpx;
+  height: 82rpx;
+}
+
+.result-head {
+  height: 78rpx;
+  margin-top: 34rpx;
+  padding-top: 18rpx;
+  border-top: 2rpx solid rgba(202, 182, 145, 0.64);
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.result-count {
+  color: #7a705e;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+/* 商品区域：控制商品图片、信息、价格和按钮样式。 */
+/* 商品区域：控制商品图片、信息、价格和按钮。 */
+.product-card {
+  min-height: 178rpx;
+  padding: 0 22rpx 0 0;
+  border: 2rpx solid rgba(209, 188, 150, 0.62);
+  border-radius: 18rpx;
+  background: rgba(255, 250, 239, 0.38);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.product-image {
+  width: 245rpx;
+  height: 176rpx;
+  margin-right: 30rpx;
+  background: rgba(255, 250, 239, 0.2);
+  flex-shrink: 0;
+}
+
+.product-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name-row {
+  display: flex;
+  align-items: center;
+}
+
+.product-name {
+  color: #3f442f;
+  font-size: 33rpx;
+  line-height: 40rpx;
+  font-weight: 900;
+}
+
+.new-tag {
+  height: 34rpx;
+  margin-left: 22rpx;
+  padding: 0 14rpx;
+  border-radius: 14rpx;
+  background: #d9e7f4;
+  color: #4f7ea3;
+  font-size: 22rpx;
+  line-height: 34rpx;
+  font-weight: 800;
+}
+
+.product-desc {
+  margin-top: 16rpx;
+  color: #817866;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  white-space: nowrap;
+}
+
+.product-price {
+  margin-top: 24rpx;
+  color: #3f442f;
+  font-size: 36rpx;
+  line-height: 44rpx;
+  font-weight: 800;
+}
+
+.add-btn {
+  width: 108rpx;
+  height: 58rpx;
+  border-radius: 999rpx;
+  background: #75825f;
+  color: #fff8ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+@media (max-width: 360px) {
+  .search-page {
+    padding-left: 22rpx;
+    padding-right: 22rpx;
+  }
+
+  .keyword-pill {
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+  }
+
+  .category-item {
+    width: 104rpx;
+  }
+
+  .product-image {
+    width: 220rpx;
+  }
+}

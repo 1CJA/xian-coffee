@@ -1,0 +1,113 @@
+<!-- 菜单点单页结构：展示分类栏、商品列表和结算入口。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="menu-page">
+  <!-- 顶部品牌区：展示品牌、门店和消息入口。 -->
+  <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+  <!-- 顶部品牌区：展示门店信息。 -->
+  <view class="menu-header">
+    <!-- 品牌展示区：展示咖啡馆标识和欢迎文案。 -->
+    <view class="brand-area" bindtap="handleBrandTap">
+      <image class="brand-leaf" src="{{leafImage}}" mode="aspectFit"></image>
+      <view class="brand-copy">
+        <text class="brand-title">栖岸咖啡</text>
+        <text class="brand-en">-QI'AN COFFEE-</text>
+      </view>
+    </view>
+
+    <view class="header-actions">
+      <view class="store-select" bindtap="handleLocationTap">
+        <view class="pin-icon"></view>
+        <text class="store-name">上海·静安店</text>
+        <text class="down-icon">⌄</text>
+      </view>
+      <view class="bell-icon" bindtap="handleNotifyTap"></view>
+    </view>
+  </view>
+
+  <!-- 搜索入口：点击后进入商品搜索页面。 -->
+
+  <!-- 搜索区域：输入或跳转到商品搜索。 -->
+  <view class="search-box" bindtap="handleSearchTap">
+    <view class="search-icon"></view>
+    <text class="search-placeholder">搜索咖啡、甜点、茶饮</text>
+  </view>
+
+  <image class="hero-store" src="{{heroImage}}" mode="widthFix" bindtap="handleHeroTap"></image>
+
+  <view class="slogan">—— 一杯咖啡，栖一刻时光 ——</view>
+
+  <!-- 分类切换区：切换不同商品分类。 -->
+
+  <!-- 分类切换区：切换不同分类内容。 -->
+  <view class="category-tabs">
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
+      class="category-tab {{activeCategory === item.id ? 'active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="handleTabTap"
+    >
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 商品内容区：承载商品列表和结算区域。 -->
+
+  <view class="product-area">
+    <!-- 商品列表区：循环渲染商品卡片。 -->
+    <!-- 商品列表区：展示可点商品。 -->
+    <view class="product-list">
+    <view
+      wx:for="{{products}}"
+      wx:key="id"
+class="product-card"
+      data-id="{{item.id}}"
+      bindtap="handleProductTap"
+    >
+      <image class="product-image" src="{{item.image}}" mode="aspectFit"></image>
+      <view class="product-info">
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-desc">{{item.desc}}</text>
+        <text class="product-price">¥{{item.price}}</text>
+      </view>
+      <view wx:if="{{item.tag}}" class="product-tag">人气</view>
+      <view wx:if="{{item.quantity > 0}}" class="quantity-control">
+        <view class="quantity-btn minus" catchtap="handleMinusTap" data-id="{{item.id}}">−</view>
+        <text class="quantity-num">{{item.quantity}}</text>
+        <view class="quantity-btn plus" catchtap="handlePlusTap" data-id="{{item.id}}">＋</view>
+      </view>
+      <view wx:else class="add-button" catchtap="handleAddTap" data-id="{{item.id}}">加入</view>
+    </view>
+  </view>
+  
+
+  <!-- 底部购物袋栏：显示件数、金额和去结算按钮。 -->
+  
+
+  <!-- 结算栏：显示购物袋金额。 -->
+  <view class="cart-bar" bindtap="handleCartTap">
+    <view class="cart-left">
+      <view class="bag-icon">
+        <view class="bag-handle"></view>
+        <text wx:if="{{cartCount > 0}}" class="cart-count">{{cartCount}}</text>
+      </view>
+      <view class="cart-copy">
+        <text class="cart-price">¥ {{cartTotal}}</text>
+        <text class="cart-link">查看购物车 ＞</text>
+      </view>
+    </view>
+    <view class="checkout-button" catchtap="handleCheckoutTap">去结算</view>
+  </view>
+  </view>
+
+  <!-- 底部导航栏：在首页、菜单、订单、个人中心之间切换。 -->
+
+  <!-- 底部导航栏：切换主要功能页面。 -->
+  <!-- 底部导航区：切换主页面。 -->
+  <view class="bottom-nav">
+    <view wx:for="{{navItems}}" wx:key="id" class="nav-item {{item.id === activeNav ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleNavTap">
+      <image class="nav-icon" src="{{item.id === activeNav ? item.activeIcon : item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view></view>

@@ -1,0 +1,448 @@
+/* 我的订单页样式：控制订单卡片、状态标签和底部导航。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #3f422d;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.orders-page {
+  min-height: 100vh;
+  padding: 86rpx 32rpx 178rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.orders-shell {
+  position: relative;
+  min-height: calc(100vh - 256rpx);
+  padding: 28rpx 12rpx 0;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.orders-back {
+  position: absolute;
+  left: -8rpx;
+  top: 24rpx;
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.orders-back-icon {
+  width: 48rpx;
+  height: 54rpx;
+  display: block;
+}
+
+/* 顶部区域：控制标题、品牌和右侧操作的排版。 */
+/* 顶部区域：控制标题、品牌和操作入口排版。 */
+.orders-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26rpx;
+}
+
+.title-leaf {
+  width: 40rpx;
+  height: 46rpx;
+  flex-shrink: 0;
+}
+
+.title-leaf.left {
+  transform: rotate(-36deg);
+}
+
+.title-leaf.right {
+  transform: rotate(36deg) scaleX(-1);
+}
+
+.page-title {
+  color: #3e442f;
+  font-size: 48rpx;
+  line-height: 58rpx;
+  font-weight: 900;
+  letter-spacing: 10rpx;
+}
+
+.page-subtitle {
+  margin-top: 16rpx;
+  color: #756d5c;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  text-align: center;
+  letter-spacing: 7rpx;
+}
+
+.tabs-row {
+  height: 98rpx;
+  margin-top: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 标签切换：控制订单、优惠券等状态切换样式。 */
+.tab-item {
+  width: 118rpx;
+  height: 82rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #4f4f3d;
+  font-size: 29rpx;
+  line-height: 40rpx;
+  font-weight: 500;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #3f442f;
+  font-weight: 900;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: 12rpx;
+  height: 7rpx;
+  border-radius: 999rpx;
+  background: #65704f;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26rpx;
+}
+
+/* 订单区域：控制订单卡片、状态和商品明细。 */
+/* 订单区域：控制订单卡片、状态和明细布局。 */
+.order-card {
+  position: relative;
+  min-height: 360rpx;
+  padding: 26rpx 32rpx 96rpx;
+  border: 2rpx solid rgba(199, 178, 139, 0.7);
+  border-radius: 28rpx;
+  background: rgba(255, 250, 239, 0.34);
+  box-sizing: border-box;
+}
+
+.card-top {
+  height: 38rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 门店区域：控制门店图片、地址和营业信息。 */
+.store-line {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.store-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 18rpx;
+  flex-shrink: 0;
+}
+
+.store-name {
+  max-width: 420rpx;
+  color: #414534;
+  font-size: 29rpx;
+  line-height: 36rpx;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-box {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  color: #65704f;
+  font-size: 32rpx;
+  line-height: 38rpx;
+  font-weight: 900;
+}
+
+.status-box.cancelled {
+  color: #a26739;
+}
+
+.order-no {
+  margin-top: 10rpx;
+  color: #6e6657;
+  font-size: 26rpx;
+  line-height: 32rpx;
+  letter-spacing: 2rpx;
+}
+
+.status-time {
+  position: absolute;
+  top: 70rpx;
+  right: 34rpx;
+  color: #817866;
+  font-size: 26rpx;
+  line-height: 34rpx;
+}
+
+.order-main {
+  margin-top: 26rpx;
+  display: block;
+}
+
+.goods-panel {
+  min-width: 0;
+  margin-left: 44rpx;
+  padding-top: 0;
+}
+
+.goods-row {
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+}
+
+.goods-thumb {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+
+.goods-copy {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.goods-name {
+  color: #424636;
+  font-size: 28rpx;
+  line-height: 33rpx;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods-price {
+  color: #414534;
+  font-size: 25rpx;
+  line-height: 30rpx;
+}
+
+.goods-qty {
+  color: #4a4b3a;
+  font-size: 28rpx;
+  line-height: 34rpx;
+}
+
+.goods-dash {
+  width: calc(100% + 44rpx);
+  height: 2rpx;
+  margin: 12rpx 0 18rpx -44rpx;
+  background-image: linear-gradient(to right, rgba(185, 166, 130, 0.52) 0, rgba(185, 166, 130, 0.52) 12rpx, transparent 12rpx, transparent 22rpx);
+  background-size: 22rpx 2rpx;
+}
+
+.summary-row {
+  display: flex;
+  align-items: baseline;
+  gap: 18rpx;
+  color: #6e6657;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  white-space: nowrap;
+}
+
+.summary-row text {
+  white-space: nowrap;
+}
+
+.pay-price {
+  margin-left: auto;
+  color: #596043;
+  font-size: 43rpx;
+  line-height: 50rpx;
+  font-weight: 900;
+}
+
+.pickup-row {
+  margin-top: 18rpx;
+  display: flex;
+  align-items: center;
+}
+
+.pickup-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 18rpx;
+  flex-shrink: 0;
+}
+
+.pickup-copy {
+  display: flex;
+  flex-direction: column;
+  color: #414534;
+}
+
+.pickup-copy text:first-child {
+  font-size: 28rpx;
+  line-height: 34rpx;
+  font-weight: 800;
+}
+
+.pickup-copy text:last-child {
+  margin-top: 4rpx;
+  color: #827866;
+  font-size: 25rpx;
+  line-height: 30rpx;
+}
+
+/* 操作按钮：控制页面内按钮排列和状态。 */
+.action-row {
+  position: absolute;
+  right: 32rpx;
+  bottom: 28rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.detail-btn,
+.again-btn,
+.cancel-btn,
+.pay-btn {
+  width: 152rpx;
+  height: 58rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  font-weight: 700;
+}
+
+.detail-btn {
+  border: 2rpx solid #7b755f;
+  color: #4d4d3b;
+  background: transparent;
+}
+
+
+.cancel-btn {
+  width: 154rpx;
+  border: 2rpx solid #a16f4a;
+  color: #8f5f3c;
+  background: transparent;
+}
+.again-btn,
+.pay-btn {
+  background: #74805d;
+  color: #fff8ec;
+}
+
+.pay-btn {
+  width: 162rpx;
+}
+
+/* 底部导航：控制 tab 图标、文字和选中状态。 */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150rpx;
+  padding: 18rpx 34rpx calc(16rpx + env(safe-area-inset-bottom));
+  border-radius: 44rpx 44rpx 0 0;
+  border-top: 2rpx solid rgba(205, 187, 151, 0.46);
+  background: #fff8ea;
+  box-shadow: 0 -10rpx 28rpx rgba(84, 70, 44, 0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+.nav-item {
+  width: 112rpx;
+  height: 104rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5e5847;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  color: #4f5e40;
+  font-weight: 900;
+}
+
+.nav-icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-bottom: 8rpx;
+  flex-shrink: 0;
+}
+
+@media (max-width: 360px) {
+  .orders-page {
+    padding-left: 22rpx;
+    padding-right: 22rpx;
+  }
+
+  .order-card {
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+  }
+
+  .goods-panel {
+    margin-left: 36rpx;
+  }
+
+  .goods-dash {
+    width: calc(100% + 36rpx);
+    margin-left: -36rpx;
+  }
+
+  .detail-btn,
+  .again-btn,
+  .cancel-btn,
+  .pay-btn {
+    width: 142rpx;
+  }
+}
+
+
+.goods-remark {
+  margin-top: 4rpx;
+  color: #a06442;
+  font-size: 21rpx;
+  line-height: 26rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

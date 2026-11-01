@@ -1,0 +1,92 @@
+<!-- 个人中心页结构：展示用户信息、统计数据和功能菜单。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="profile-page">
+  <view class="profile-shell">
+    <!-- 用户信息区：展示头像、昵称和会员信息。 -->
+    <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+    <view class="profile-header" bindtap="handleHeaderTap">
+      <view class="title-wrap">
+        <image class="title-leaf left" src="{{leafIcon}}" mode="aspectFit"></image>
+        <text class="page-title">个人中心</text>
+        <image class="title-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+      </view>
+      <image class="notice-icon" src="{{bellIcon}}" mode="aspectFit" bindtap="handleNoticeTap"></image>
+    </view>
+
+    <view class="user-hero" bindtap="handleUserTap">
+      <image class="avatar-img" src="{{avatarImage}}" mode="aspectFill" bindtap="handleAvatarTap"></image>
+      <view class="user-info">
+        <view class="name-row" bindtap="handleNameTap">
+          <text class="user-name">{{userInfo.nickname}}</text>
+          <text class="vip-tag">VIP</text>
+        </view>
+        <view class="welcome-row" bindtap="handleWelcomeTap">
+          <text>欢迎来到栖岸咖啡</text>
+          <image class="small-leaf" src="{{leafIcon}}" mode="aspectFit"></image>
+        </view>
+        <view class="points-pill" bindtap="handlePointsTap">
+          <text>可用积分</text>
+          <text class="points-num">{{userInfo.points}}</text>
+          <text>分</text>
+          <text class="arrow">›</text>
+        </view>
+      </view>
+      <image class="scene-img" src="{{sceneImage}}" mode="aspectFit" bindtap="handleSceneTap"></image>
+    </view>
+
+    <!-- 订单卡片：展示订单状态、商品明细和操作按钮。 -->
+
+    <!-- 订单卡片：展示订单状态、商品和操作按钮。 -->
+    <view class="order-card" bindtap="handleOrderCardTap">
+      <view class="section-head">
+        <text class="section-title">我的订单</text>
+        <view class="view-all" catchtap="handleViewAllOrdersTap">
+          <text>查看全部</text>
+          <text class="arrow">›</text>
+        </view>
+      </view>
+      <view class="order-status-row">
+        <view wx:for="{{orderStatus}}" wx:key="id" class="status-item" data-id="{{item.id}}" bindtap="handleOrderStatusTap">
+          <view class="status-icon-wrap">
+            <image class="status-icon" src="{{item.icon}}" mode="aspectFit"></image>
+           
+          </view>
+          <text class="status-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="service-card">
+      <view wx:for="{{serviceItems}}" wx:key="id" class="service-row {{index === serviceItems.length - 1 ? 'last' : ''}}" data-id="{{item.id}}" bindtap="handleServiceTap">
+        <image class="service-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-extra">{{item.extra}}</text>
+        <text class="service-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="benefit-card" bindtap="handleBenefitCardTap">
+      <view class="benefit-copy">
+        <text class="benefit-title">本月专享福利</text>
+        <text class="benefit-desc">会员专属好礼，轻享咖啡时光</text>
+        <view class="benefit-btn" catchtap="handleBenefitTap">
+          <text>立即领取</text>
+          <text>›</text>
+        </view>
+      </view>
+      <image class="benefit-img" src="{{benefitImage}}" mode="aspectFit" bindtap="handleBenefitImageTap"></image>
+    </view>
+  </view>
+
+  <!-- 底部导航栏：在首页、菜单、订单、个人中心之间切换。 -->
+
+  <!-- 底部导航栏：切换主要功能页面。 -->
+  <!-- 底部导航区：切换主页面。 -->
+  <view class="bottom-nav">
+    <view wx:for="{{navItems}}" wx:key="id" class="nav-item {{item.id === activeNav ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleNavTap">
+      <image class="nav-icon" src="{{item.id === activeNav ? item.activeIcon : item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>

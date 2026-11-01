@@ -1,0 +1,185 @@
+/* 欢迎首页样式：控制欢迎图、按钮和背景布局。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.welcome-page {
+  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  background: #F4EAD9;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.welcome-card {
+  width: 100%;
+  min-height: 100vh;
+  padding: 132rpx 80rpx 56rpx;
+  box-sizing: border-box;
+  border-radius: 0;
+  background: #F4EAD9;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24rpx;
+}
+
+.leaf-img {
+  width: 56rpx;
+  height: 84rpx;
+  flex-shrink: 0;
+}
+
+.left-leaf-img {
+  transform: rotate(-12deg);
+}
+
+.right-leaf-img {
+  transform: scaleX(-1) rotate(-12deg);
+}
+
+.main-title {
+  color: #4d5631;
+  font-size: 56rpx;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.subtitle-row,
+/* 品牌元素：控制 logo、标题和英文标识样式。 */
+.brand-en-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtitle-row {
+  margin-top: 22rpx;
+  gap: 0;
+}
+
+.subtitle-line {
+  height: 2rpx;
+  background: #59603d;
+}
+
+.subtitle-line {
+  width: 58rpx;
+}
+
+.subtitle-text {
+  color: #4d5631;
+  font-size: 30rpx;
+  font-weight: 500;
+  letter-spacing: 8rpx;
+}
+
+.shop-wrap {
+  width: 135%;
+  margin-top: 62rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.shop-image {
+  width: 880rpx;
+  display: block;
+}
+
+.brand-area {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cup-logo-img {
+  width: 190rpx;
+  height: 190rpx;
+  display: block;
+}
+
+.brand-title {
+  margin-top: 16rpx;
+  color: #4d5631;
+  font-size: 54rpx;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: 8rpx;
+}
+
+.brand-en-row {
+  margin-top: 20rpx;
+  gap: 0;
+}
+
+
+.brand-en {
+  color: #4d5631;
+  font-size: 26rpx;
+  letter-spacing: 8rpx;
+  font-weight: 500;
+}
+
+.enter-button {
+  margin-top: 30rpx;
+  width: 230rpx;
+  height: 82rpx;
+  padding: 0;
+  border: 3rpx solid #536039;
+  border-radius: 44rpx;
+  background: transparent;
+  color: #4d5631;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: 800;
+  line-height: 82rpx;
+}
+
+.enter-button::after {
+  border: 0;
+}
+
+.enter-hover {
+  background: rgba(83, 96, 57, 0.08);
+}
+
+
+@media (max-height: 700px) {
+  .welcome-card {
+    padding-top: 64rpx;
+    padding-bottom: 36rpx;
+  }
+
+  .shop-wrap {
+    margin-top: 34rpx;
+  }
+
+  .shop-image {
+    width: 880rpx;
+  }
+
+  .brand-area {
+    margin-top: 28rpx;
+  }
+
+  .enter-button {
+    margin-top: 32rpx;
+  }
+}

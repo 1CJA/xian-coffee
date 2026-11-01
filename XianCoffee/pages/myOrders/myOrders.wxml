@@ -1,0 +1,88 @@
+<!-- 我的订单页结构：展示订单标签、订单卡片和操作按钮。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="orders-page">
+  <view class="orders-shell">
+    <view class="orders-back" bindtap="handleBackTap">
+      <image class="orders-back-icon" src="{{backIcon}}" mode="aspectFit"></image>
+    </view>
+    <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+    <view class="orders-header" bindtap="handleHeaderTap">
+      <image class="title-leaf left" src="{{leafIcon}}" mode="aspectFit"></image>
+      <text class="page-title">我的订单</text>
+      <image class="title-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+    </view>
+    <view class="page-subtitle" bindtap="handleSubtitleTap">一杯好咖啡，慢享好时光</view>
+
+    <view class="tabs-row">
+      <view wx:for="{{tabs}}" wx:key="id" class="tab-item {{activeTab === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleTabTap">
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+
+    <!-- 订单列表区：展示历史订单。 -->
+    <view class="orders-list">
+        <!-- 订单卡片：展示订单状态、商品明细和操作按钮。 -->`r`n      <view wx:for="{{displayOrders}}" wx:key="id" class="order-card" data-id="{{item.id}}" bindtap="handleOrderTap">
+        <view class="card-top">
+          <view class="store-line">
+            <image class="store-icon" src="{{storeIcon}}" mode="aspectFit"></image>
+            <text class="store-name">{{item.storeName}}</text>
+          </view>
+          <view class="status-box {{item.statusClass}}" data-id="{{item.id}}" catchtap="handleStatusTap">
+            <text>{{item.statusText}}</text>
+          </view>
+        </view>
+        <view class="order-no" data-id="{{item.id}}" bindtap="handleOrderNoTap">订单号：{{item.orderNo}}</view>
+        <view class="status-time">{{item.time}}</view>
+
+        <view class="order-main">
+          <view class="goods-panel">
+            <view wx:for="{{item.goods}}" wx:key="name" class="goods-row" data-id="{{item.id}}" catchtap="handleGoodsTap">
+              <image class="goods-thumb" src="{{item.image}}" mode="aspectFit"></image>
+              <view class="goods-copy">
+                <text class="goods-name">{{item.name}}</text>
+                <text class="goods-spec">{{item.spec}}</text>
+                <text wx:if="{{item.remark}}" class="goods-remark">备注：{{item.remark}}</text>
+                <text class="goods-price">¥{{item.priceText}}</text>
+              </view>
+              <text class="goods-qty">×{{item.quantity}}</text>
+            </view>
+            <view class="goods-dash"></view>
+            <view class="summary-row" data-id="{{item.id}}" catchtap="handleSummaryTap">
+              <text>共{{item.totalCount}}件商品</text>
+              <text>实付金额</text>
+              <text class="pay-price">¥{{item.amountText}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="pickup-row" data-id="{{item.id}}" catchtap="handlePickupTap">
+          <image class="pickup-icon" src="{{pickupIcon}}" mode="aspectFit"></image>
+          <view class="pickup-copy">
+            <text>自提取餐</text>
+            <text>{{item.pickupText}}</text>
+          </view>
+        </view>
+
+                <!-- 操作按钮区：放置查看、支付、取消等按钮。 -->
+
+                <view class="action-row">
+          <view class="detail-btn" data-id="{{item.id}}" catchtap="handleDetailTap">查看详情</view>
+          <view wx:if="{{item.canPay}}" class="cancel-btn" data-id="{{item.id}}" catchtap="handleCancelTap">取消订单</view>
+          <view wx:if="{{item.canPay}}" class="pay-btn" data-id="{{item.id}}" catchtap="handlePayTap">立即支付</view>
+          <view wx:if="{{item.canReorder}}" class="again-btn" data-id="{{item.id}}" catchtap="handleReorderTap">再来一单</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部导航栏：在首页、菜单、订单、个人中心之间切换。 -->
+
+  <!-- 底部导航栏：切换主要功能页面。 -->
+  <view class="bottom-nav">
+    <view wx:for="{{navItems}}" wx:key="id" class="nav-item {{item.id === 'mine' ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleNavTap">
+      <image class="nav-icon" src="{{item.id === 'mine' ? item.activeIcon : item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>

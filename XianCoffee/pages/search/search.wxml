@@ -1,0 +1,82 @@
+<!-- 搜索页面结构：展示搜索框、分类入口和结果列表。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<!-- 搜索区域：输入或跳转到商品搜索。 -->
+<view class="search-page">
+  <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+  <view class="brand-header">
+    <image class="brand-leaf" src="{{brandLeaf}}" mode="aspectFit" bindtap="handleCategoryTap" data-name="栖岸咖啡"></image>
+    <view class="brand-copy" bindtap="handleCategoryTap" data-name="栖岸咖啡">
+      <text class="brand-name">栖 岸 咖 啡</text>
+      <text class="brand-en">—QI’AN COFFEE—</text>
+    </view>
+  </view>
+
+  <view class="search-row">
+    <!-- 搜索入口：点击后进入商品搜索页面。 -->
+    <view class="search-box">
+      <view class="search-icon"></view>
+      <input class="search-input" value="{{keyword}}" placeholder="搜索咖啡、甜点、茶饮" placeholder-class="search-placeholder" confirm-type="search" bindinput="handleInput" bindconfirm="handleSearchConfirm" />
+    </view>
+    <view class="cancel-btn" bindtap="handleCancelTap">取消</view>
+  </view>
+
+  <!-- 最近搜索区：快速复用关键词。 -->
+  <view class="section-block recent-block">
+    <view class="section-head">
+      <text class="section-title">最近搜索</text>
+      <image class="trash-icon" src="{{trashIcon}}" mode="aspectFit" bindtap="handleClearRecentTap"></image>
+    </view>
+    <view class="keyword-row">
+      <view wx:for="{{recentKeywords}}" wx:key="*this" class="keyword-pill" data-keyword="{{item}}" bindtap="handleKeywordTap">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 热门推荐区：展示推荐词。 -->
+  <view class="section-block hot-block">
+    <view class="title-with-icon">
+      <image class="fire-icon" src="{{fireIcon}}" mode="aspectFit"></image>
+      <text class="section-title">热门推荐</text>
+    </view>
+    <view class="keyword-row hot-row">
+      <view wx:for="{{hotKeywords}}" wx:key="*this" class="keyword-pill hot" data-keyword="{{item}}" bindtap="handleKeywordTap">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="section-block category-block">
+    <view class="title-with-icon">
+      <image class="category-leaf" src="{{brandLeaf}}" mode="aspectFit"></image>
+      <text class="section-title">分类快捷</text>
+    </view>
+    <!-- 分类切换区：切换不同分类内容。 -->
+    <view class="category-row">
+      <view wx:for="{{categories}}" wx:key="id" class="category-item" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="handleCategoryTap">
+        <view class="category-icon-wrap">
+          <image class="category-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="result-head">
+    <text class="result-title">搜索结果</text>
+    <text class="result-count">共 {{resultCount}} 个结果</text>
+  </view>
+
+  <!-- 搜索结果区：展示商品卡片。 -->
+  <view class="result-list">
+      <!-- 商品卡片：展示商品图片、名称、价格和加购按钮。 -->`r`n    <view wx:for="{{products}}" wx:key="id" class="product-card" data-id="{{item.id}}" bindtap="handleProductTap">
+      <image class="product-image" src="{{item.image}}" mode="aspectFit"></image>
+      <view class="product-info">
+        <view class="product-name-row">
+          <text class="product-name">{{item.name}}</text>
+          <text wx:if="{{item.tag}}" class="new-tag">{{item.tag}}</text>
+        </view>
+        <text class="product-desc">{{item.desc}}</text>
+        <text class="product-price">￥{{item.price}}</text>
+      </view>
+      <view class="add-btn" data-id="{{item.id}}" catchtap="handleAddTap">加入</view>
+    </view>
+  </view>
+</view>

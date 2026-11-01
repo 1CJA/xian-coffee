@@ -1,0 +1,66 @@
+<!-- 地址管理页结构：展示地址卡片和新增按钮。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="address-page">
+  <view class="address-shell">
+    <view class="topbar">
+      <view class="back-btn" bindtap="handleBackTap">
+        <image class="back-icon" src="{{backIcon}}" mode="aspectFit"></image>
+      </view>
+      <text class="page-title">地址管理</text>
+      <view class="top-space"></view>
+    </view>
+
+    <!-- 品牌展示区：展示咖啡馆标识和欢迎文案。 -->
+
+    <view class="brand-area" bindtap="handleHeaderTap">
+      <view class="brand-center" bindtap="handleBrandTap">
+        <view class="brand-row">
+          <image class="leaf left" src="{{leafLeft}}" mode="aspectFit"></image>
+          <text class="brand-name">栖 岸 咖 啡</text>
+          <image class="leaf right" src="{{leafRight}}" mode="aspectFit"></image>
+        </view>
+        <text class="brand-en">QI'AN COFFEE</text>
+      </view>
+      <image class="coffee-img" src="{{coffeeImage}}" mode="aspectFit" bindtap="handleCoffeeTap"></image>
+    </view>
+
+    <!-- 地址列表区：展示用户保存的收货地址。 -->
+
+    <view class="address-list">
+        <!-- 地址卡片：展示联系人、手机号和详细地址。 -->  <view wx:for="{{addresses}}" wx:key="id" class="address-card" data-id="{{item.id}}" bindtap="handleAddressTap">
+        <view class="location-side">
+          <image class="location-icon" src="{{locationIcon}}" mode="aspectFit"></image>
+          <view class="vertical-dash"></view>
+        </view>
+
+        <view class="info-block">
+          <view class="name-row">
+            <text class="person-name">{{item.name}}</text>
+            <text wx:if="{{item.isDefault}}" class="default-tag">默认</text>
+          </view>
+          <text class="phone-text">{{item.phone}}</text>
+          <text class="detail-text">{{item.detail}}</text>
+        </view>
+
+        <view class="action-block">
+          <view class="action-item" data-id="{{item.id}}" catchtap="handleEditTap">
+            <image class="action-icon edit" src="{{editIcon}}" mode="aspectFit"></image>
+            <text>编辑</text>
+          </view>
+          <view class="action-line"></view>
+          <view class="action-item delete" data-id="{{item.id}}" catchtap="handleDeleteTap">
+            <image class="action-icon" src="{{deleteIcon}}" mode="aspectFit"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 新增地址按钮。 -->
+    <view class="add-btn" bindtap="handleAddTap">
+      <image class="plus-icon" src="{{plusIcon}}" mode="aspectFit"></image>
+      <text>新增地址</text>
+    </view>
+  </view>
+</view>

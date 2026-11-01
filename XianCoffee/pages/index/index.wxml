@@ -1,0 +1,34 @@
+<!-- 欢迎首页结构：展示品牌欢迎图和进入按钮。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="welcome-page">
+  <view class="welcome-card">
+    <view class="title-area">
+      <image class="leaf-img left-leaf-img" src="{{leafImage}}" mode="aspectFit"></image>
+      <text class="main-title">欢迎光临</text>
+      <image class="leaf-img right-leaf-img" src="{{leafImage}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="subtitle-row">
+      <view class="subtitle-line"></view>
+      <text class="subtitle-text">栖岸咖啡</text>
+      <view class="subtitle-line"></view>
+    </view>
+
+    <view class="shop-wrap">
+      <image class="shop-image" src="{{shopImage}}" mode="widthFix"></image>
+    </view>
+
+    <!-- 品牌展示区：展示咖啡馆标识和欢迎文案。 -->
+
+    <view class="brand-area">
+      <image class="cup-logo-img" src="{{cupLogoImage}}" mode="aspectFit"></image>
+      <text class="brand-title">栖 岸 咖 啡</text>
+      <view class="brand-en-row">
+        <text class="brand-en">QI'AN COFFEE</text>
+      </view>
+    </view>
+
+    <button class="enter-button" hover-class="enter-hover" bindtap="goEntry">进入</button>
+  </view>
+</view>

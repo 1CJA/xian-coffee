@@ -1,0 +1,104 @@
+<!-- 集点卡页结构：展示集点卡片、记录和兑换入口。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="stamp-page">
+  <view class="stamp-shell">
+    <view class="stamp-topbar">
+      <view class="nav-back" bindtap="handleBackTap">
+        <image class="back-icon" src="{{backIcon}}" mode="aspectFit"></image>
+      </view>
+      <text class="page-title">集点卡</text>
+      <view class="top-space"></view>
+    </view>
+
+    <view class="brand-section" bindtap="handleHeaderTap">
+      <view class="brand-left" bindtap="handleBrandTap">
+        <image class="brand-logo" src="{{logoImage}}" mode="aspectFit"></image>
+        <view class="brand-copy">
+          <text class="brand-name">栖 岸 咖 啡</text>
+          <text class="brand-en">QI'AN COFFEE</text>
+        </view>
+      </view>
+      <image class="store-image" src="{{storeImage}}" mode="aspectFit" bindtap="handleStoreTap"></image>
+      <view class="slogan-row">
+        <image class="tiny-leaf" src="{{leafIcon}}" mode="aspectFit"></image>
+        <text>一杯咖啡，栖一刻时光</text>
+        <image class="tiny-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 集点卡区域：展示当前集点进度和兑换入口。 -->
+
+    <view class="stamp-card" bindtap="handleStampPanelTap">
+      <view class="stamp-card-head">
+        <view>
+          <view class="promo-line">
+            <image class="promo-leaf" src="{{leafIcon}}" mode="aspectFit"></image>
+            <text>买 {{stampTarget}} 送 1</text>
+            <image class="promo-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+          </view>
+          <text class="promo-subtitle">集满 {{stampTarget}} 枚印章，免费兑换指定饮品 1 杯</text>
+        </view>
+        <view class="progress-pill">{{progressText}}</view>
+      </view>
+
+      <view class="stamp-board">
+        <!-- 集点格子区：展示当前集点。 -->
+        <view class="stamp-grid">
+          <view wx:for="{{stamps}}" wx:key="id" class="stamp-cell" data-id="{{item.id}}" bindtap="handleStampTap">
+            <image class="stamp-icon {{item.filled ? '' : 'empty'}}" src="{{item.filled ? stampFilled : stampEmpty}}" mode="aspectFit"></image>
+          </view>
+        </view>
+        <view class="reward-box" bindtap="handleRewardTap">
+          <image class="reward-coffee" src="{{redeemCoffee}}" mode="aspectFit"></image>
+          <view class="reward-ribbon">免费兑换</view>
+          <text class="reward-text">指定饮品 1 杯</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 规则说明区：展示兑换规则。 -->
+    <view class="rule-card">
+      <view class="section-title-row">
+        <image class="section-leaf" src="{{leafIcon}}" mode="aspectFit"></image>
+        <text>奖励规则</text>
+      </view>
+      <view class="dash-line"></view>
+      <image class="rule-bag" src="{{rewardBag}}" mode="aspectFit"></image>
+      <view class="rule-list">
+        <view wx:for="{{rules}}" wx:key="id" class="rule-item" data-id="{{item.id}}" bindtap="handleRuleTap">
+          <image class="rule-icon" src="{{item.icon}}" mode="aspectFit"></image>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="record-card">
+      <view class="record-head">
+        <view class="section-title-row compact">
+          <image class="section-leaf" src="{{leafIcon}}" mode="aspectFit"></image>
+          <text>兑换记录</text>
+        </view>
+        <view class="all-record" bindtap="handleAllRecordTap">全部记录 ›</view>
+      </view>
+      <view class="record-list">
+        <view wx:for="{{records}}" wx:key="id" class="record-item" data-id="{{item.id}}" bindtap="handleRecordTap">
+          <view class="record-badge {{item.type}}">
+            <text wx:if="{{item.badge}}">{{item.badge}}</text>
+            <image wx:else class="record-gift" src="{{item.icon}}" mode="aspectFit"></image>
+          </view>
+          <view class="record-copy">
+            <text class="record-title">{{item.title}}</text>
+            <text class="record-time">{{item.time}}</text>
+          </view>
+          <text class="record-result">{{item.result}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="drink-btn" bindtap="handleDrinkTap">
+      <image class="drink-icon" src="{{cupIcon}}" mode="aspectFit"></image>
+      <text>查看可兑换饮品</text>
+    </view>
+  </view>
+</view>

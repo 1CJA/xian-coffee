@@ -1,0 +1,67 @@
+<!-- 功能入口页结构：展示轮播图、功能卡片、视频和导航。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="entry-page">
+  <view class="entry-card">
+    <view class="title-area">
+      <image class="leaf-img left-leaf-img" src="{{leafImage}}" mode="aspectFit"></image>
+      <text class="main-title">欢迎光临</text>
+      <image class="leaf-img right-leaf-img" src="{{leafImage}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="storefront-wrap">
+      <image class="storefront-image" src="{{storefrontImage}}" mode="widthFix"></image>
+    </view>
+    <!-- 首页轮播区：展示活动图片。 -->
+    <swiper class="promo-swiper" autoplay="true" circular="true" interval="3200" duration="500" indicator-dots="true" indicator-color="rgba(78, 86, 52, 0.28)" indicator-active-color="#4f5e40">
+      <swiper-item wx:for="{{carouselImages}}" wx:key="id">
+        <view class="promo-slide" bindtap="handleBannerTap" data-id="{{item.id}}">
+          <image class="promo-image" src="{{item.image}}" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <view class="order-row">
+      <!-- 订单卡片：展示订单状态、商品明细和操作按钮。 -->
+      <!-- 订单卡片：展示订单状态、商品和操作按钮。 -->
+      <view class="order-card" wx:for="{{orderTypes}}" wx:key="id" bindtap="handleOrderTypeTap" data-name="{{item.name}}">
+        <view class="order-visual">
+          <image class="order-image" src="{{item.image}}" mode="aspectFit"></image>
+        </view>
+        <view class="order-copy">
+          <text class="order-name">{{item.name}}</text>
+          <text class="order-en">{{item.en}}</text>
+          <view class="small-line"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="wide-card member-card" bindtap="handleMemberTap">
+      <view class="wide-copy">
+        <text class="wide-title">会员中心</text>
+        <text class="wide-en">MEMBER CENTER</text>
+        <view class="wide-line"></view>
+      </view>
+      <image class="vip-image" src="{{memberImage}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="wide-card stamp-card" bindtap="handleStampTap">
+      <view class="wide-copy">
+        <text class="wide-title">集点卡</text>
+        <text class="wide-en">STAMP CARD</text>
+        <view class="wide-line"></view>
+      </view>
+      <image class="stamp-image" src="{{stampImage}}" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 底部导航栏：在首页、菜单、订单、个人中心之间切换。 -->
+
+  <!-- 底部导航栏：切换主要功能页面。 -->
+  <!-- 底部导航区：切换主页面。 -->
+  <view class="bottom-nav">
+    <view wx:for="{{navItems}}" wx:key="id" class="nav-item {{item.id === activeNav ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleNavTap">
+      <image class="nav-icon" src="{{item.id === activeNav ? item.activeIcon : item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view></view>

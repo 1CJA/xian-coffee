@@ -1,0 +1,87 @@
+<!-- 门店详情页结构：展示门店图片、信息和视频组件。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="store-page">
+  <view class="topbar">
+    <view class="back-btn" bindtap="handleBackTap">
+      <image class="back-icon" src="{{backIcon}}" mode="aspectFit"></image>
+    </view>
+    <text class="top-title" bindtap="handleTitleTap">门店详情</text>
+    <view class="top-placeholder"></view>
+  </view>
+
+  <view class="brand-title" bindtap="handleTitleTap">
+    <text class="brand-name">栖岸咖啡</text>
+  </view>
+  <text class="brand-en">QI'AN COFFEE</text>
+
+  <image class="store-hero" src="{{storeImage}}" mode="aspectFill" bindtap="handleStoreImageTap"></image>
+
+  <!-- 门店信息区：展示门店地址、营业时间和电话。 -->
+
+  <!-- 门店信息区：展示地址、营业时间和联系方式。 -->
+  <view class="store-card">
+    <view class="store-head">
+      <view class="store-name-wrap" bindtap="handleTitleTap">
+        <text class="store-name">{{store.name}}</text>
+        <text class="store-distance">距您 {{store.distance}}</text>
+      </view>
+      <view class="rating" bindtap="handleRatingTap">
+        <image class="star-icon" src="{{starIcon}}" mode="aspectFit"></image>
+        <text>{{store.rating}}</text>
+      </view>
+    </view>
+
+    <view class="service-row">
+      <view wx:for="{{serviceTags}}" wx:key="id" class="service-item" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="handleTagTap">
+        <image class="service-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 门店信息区：展示地址电话。 -->
+  <view class="info-card">
+    <view wx:for="{{infoRows}}" wx:key="id" class="info-row" data-id="{{item.id}}" bindtap="handleInfoTap">
+      <image class="info-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <text class="info-label">{{item.label}}</text>
+      <text class="info-value">{{item.value}}</text>
+      <text class="row-arrow">›</text>
+    </view>
+
+    <view class="intro-row" bindtap="handleIntroTap">
+      <image class="info-icon" src="{{introIcon}}" mode="aspectFit"></image>
+      <view class="intro-copy">
+        <text class="info-label">门店介绍</text>
+        <text class="intro-text">{{store.intro}}</text>
+      </view>
+      <text class="row-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮区：放置查看、支付、取消等按钮。 -->
+
+  <!-- 门店操作区：导航和电话。 -->
+  <view class="action-row">
+    <view wx:for="{{actionItems}}" wx:key="id" class="action-item" data-id="{{item.id}}" bindtap="handleActionTap">
+      <image class="action-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="env-section">
+    <view class="section-head">
+      <text class="section-title">环境展示</text>
+    </view>
+    <view class="env-list">
+      <image wx:for="{{envImages}}" wx:key="id" class="env-img" src="{{item.image}}" mode="aspectFill" data-id="{{item.id}}" bindtap="handleEnvTap"></image>
+    </view>
+  </view>
+  <!-- 门店视频区：展示门店宣传视频组件。 -->
+  <view class="video-section">
+    <view class="section-head video-head">
+      <text class="section-title">门店视频</text>
+    </view>
+    <video id="storeVideo" class="store-video" src="{{storeVideo}}" controls="true" object-fit="cover" show-center-play-btn="true" enable-progress-gesture="true" bindplay="handleVideoPlay" bindpause="handleVideoPause" binderror="handleVideoError"></video>
+  </view>
+</view>

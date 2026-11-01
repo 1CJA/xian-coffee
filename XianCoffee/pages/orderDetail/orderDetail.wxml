@@ -1,0 +1,117 @@
+<!-- 订单详情页结构：展示订单信息、商品明细和金额汇总。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="detail-page">
+  <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+  <view class="detail-header">
+    <image class="back-icon" src="{{backIcon}}" mode="aspectFit" bindtap="goBack"></image>
+    <view class="title-wrap" bindtap="handleTitleTap">
+      <image class="title-leaf left" src="{{leafIcon}}" mode="aspectFit"></image>
+      <text class="page-title">订单详情</text>
+      <image class="title-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 订单状态区：展示当前进度。 -->
+  <view class="status-card" bindtap="handleStatusCardTap">
+    <view class="status-copy">
+      <view class="status-tag" bindtap="handleStatusTap">{{statusText}}</view>
+      <text class="pickup-time">{{pickupTime}}</text>
+      <text class="status-desc">{{statusDescLine1}}</text>
+      <text class="status-desc">{{statusDescLine2}}</text>
+    </view>
+    <image class="store-hero" src="{{storeHero}}" mode="aspectFit" bindtap="handleStoreHeroTap"></image>
+  </view>
+
+  <view class="info-card order-code-card">
+    <view class="order-info-list">
+      <view class="info-row" bindtap="handleOrderNoTap">
+        <image class="info-icon" src="{{storeIcon}}" mode="aspectFit"></image>
+        <text class="info-label">订单号</text>
+        <text class="info-value">{{orderNo}}</text>
+      </view>
+      <view class="info-row" bindtap="handleOrderTimeTap">
+        <image class="info-icon" src="{{timeIcon}}" mode="aspectFit"></image>
+        <text class="info-label">下单时间</text>
+        <text class="info-value">{{orderTime}}</text>
+      </view>
+      <view class="info-row" bindtap="handlePickupModeTap">
+        <image class="info-icon" src="{{pickupIcon}}" mode="aspectFit"></image>
+        <text class="info-label">取餐方式</text>
+        <text class="info-value">{{pickupMode}}</text>
+      </view>
+    </view>
+    <view class="code-panel" bindtap="handlePickupCodeTap">
+      <text class="code-label">取餐码</text>
+      <view class="code-row">
+        <text class="code-num">{{pickupCode}}</text>
+        <view class="copy-btn" catchtap="handleCopyTap">复制</view>
+      </view>
+      <text class="code-desc">到店出示取餐码取餐</text>
+    </view>
+  </view>
+
+  <view class="info-card store-card" bindtap="handleStoreTap">
+    <view class="store-text">
+      <view class="store-title-row">
+        <image class="store-small-icon" src="{{storeIcon}}" mode="aspectFit"></image>
+        <text class="store-title">栖岸咖啡 · 望江路店</text>
+      </view>
+      <text class="store-address">上海市静安区望江路198号</text>
+      <view class="distance-row">
+        <image class="distance-icon" src="{{mapIcon}}" mode="aspectFit"></image>
+        <text>距您 680m</text>
+      </view>
+    </view>
+    <view class="store-actions">
+      <view class="circle-action" catchtap="handlePhoneTap">
+        <image class="circle-icon" src="{{phoneIcon}}" mode="aspectFit"></image>
+        <text>电话</text>
+      </view>
+      <view class="circle-action" catchtap="handleMapTap">
+        <image class="circle-icon" src="{{mapIcon}}" mode="aspectFit"></image>
+        <text>导航</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品明细区：展示购买内容。 -->
+  <view class="goods-card">
+    <view class="section-head" bindtap="handleGoodsTitleTap">
+      <text>商品清单</text>
+      <text class="goods-count">共 {{totalCount}} 件</text>
+    </view>
+    <view wx:for="{{goods}}" wx:key="name" class="goods-item {{index === goods.length - 1 ? 'last' : ''}}" data-index="{{index}}" bindtap="handleGoodsTap">
+      <image class="goods-img" src="{{item.image}}" mode="aspectFit"></image>
+      <view class="goods-copy">
+        <text class="goods-name">{{item.name}}</text>
+        <text class="goods-spec">{{item.spec}}</text>
+        <text wx:if="{{item.remark}}" class="goods-remark">备注：{{item.remark}}</text>
+      </view>
+      <view class="goods-price-box">
+        <text class="goods-price">¥ {{item.priceText}}</text>
+        <text class="goods-qty">× {{item.quantity}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="amount-card" bindtap="handleAmountTap">
+    <view class="amount-row"><text>商品金额</text><text>¥ {{goodsAmountText}}</text></view>
+    <view class="amount-row coupon"><view><text>优惠券</text><text class="coupon-tag">满减优惠</text></view><text>- ¥ {{couponText}}</text></view>
+    <view class="amount-line"></view>
+    <view class="amount-row paid"><text>实付金额</text><text>¥ {{paidAmountText}}</text></view>
+  </view>
+
+  <view class="remark-card" bindtap="handleRemarkTap">
+    <image class="remark-icon" src="{{noteIcon}}" mode="aspectFit"></image>
+    <view class="remark-copy">
+      <text class="remark-title">备注信息</text>
+      <text class="remark-text">{{remarkText}}</text>
+    </view>
+  </view>
+
+  <view class="bottom-actions">
+    <view class="again-action" bindtap="handlePrimaryAction">{{primaryActionText}}</view>
+    <view class="service-action" bindtap="handleSecondaryAction">{{secondaryActionText}}</view>
+  </view>
+</view>

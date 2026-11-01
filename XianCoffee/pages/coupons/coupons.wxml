@@ -1,0 +1,65 @@
+<!-- 优惠券页结构：展示优惠券列表和返回入口。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="coupons-page">
+  <view class="coupons-shell">
+    <!-- 顶部信息区：展示标题、用户或门店信息。 -->
+    <view class="header-row">
+      <view class="back-btn" bindtap="goBack">‹</view>
+      <view class="title-area" bindtap="handleTitleTap">
+       
+        <text class="page-title">优惠券</text>
+        
+      </view>
+      <view class="header-space"></view>
+    </view>
+
+    <view class="subtitle" bindtap="handleSubtitleTap">栖岸咖啡 · 专属优惠为你准备</view>
+
+    <view class="tabs-card">
+      <view wx:for="{{tabs}}" wx:key="id" class="tab-item {{activeTab === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleTabTap">
+        <text>{{item.name}}（{{item.count}}）</text>
+        <view wx:if="{{activeTab === item.id}}" class="tab-line"></view>
+      </view>
+    </view>
+
+    <!-- 不使用券入口：返回订单页。 -->
+    <view wx:if="{{fromPage === 'confirm'}}" class="no-coupon-card" bindtap="handleNoCouponTap">
+      <text class="no-coupon-title">不使用优惠券</text>
+      <text class="no-coupon-desc">本单不使用优惠抵扣</text>
+    </view>
+
+    <!-- 优惠券列表区：展示可用和不可用优惠券。 -->
+
+    <view class="coupon-list">
+        <!-- 优惠券卡片：展示优惠金额、门槛和使用状态。 -->`r`n      <view wx:for="{{displayCoupons}}" wx:key="id" class="coupon-card {{item.theme}} {{item.status !== 'available' ? 'disabled' : ''}}" data-id="{{item.id}}" bindtap="handleCouponTap">
+        <view class="side-strip">
+          <view class="side-text">{{item.sideText}}</view>
+          <image wx:if="{{item.sideIcon}}" class="side-icon" src="{{item.sideIcon}}" mode="aspectFit"></image>
+        </view>
+        <view class="coupon-body">
+          <view class="coupon-copy">
+            <text class="coupon-title">{{item.title}}</text>
+            <view class="coupon-offer">
+              <text>{{item.offerPrefix}}</text>
+              <text class="offer-big">{{item.offerMain}}</text>
+              <text>{{item.offerSuffix}}</text>
+            </view>
+            <view class="dash-line"></view>
+            <text class="rule-line">有效期至 {{item.validDate}}</text>
+            <text class="rule-line">适用门店：栖岸咖啡全门店</text>
+            <text class="rule-line condition">使用条件：{{item.condition}}</text>
+          </view>
+          <image class="coupon-art" src="{{item.image}}" mode="aspectFit" bindtap="handleArtTap" data-id="{{item.id}}"></image>
+          <view wx:if="{{item.status === 'available'}}" class="use-btn" data-id="{{item.id}}" catchtap="handleUseTap">立即使用</view>
+          <view wx:else class="used-btn" data-id="{{item.id}}" catchtap="handleStatusTap">{{item.statusText}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="footer-note" bindtap="handleRuleTap">
+      <image class="note-leaf" src="{{leafIcon}}" mode="aspectFit"></image>
+      <text>优惠券不可转让，使用规则详见门店说明</text>
+    </view>
+  </view>
+</view>

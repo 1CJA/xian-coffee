@@ -1,0 +1,31 @@
+{
+    "pages":  [
+                  "pages/index/index",
+                  "pages/login/login",
+                  "pages/entry/entry",
+                  "pages/menu/menu",
+                  "pages/storeDetail/storeDetail",
+                  "pages/search/search",
+                  "pages/productDetail/productDetail",
+                  "pages/bag/bag",
+                  "pages/confirmOrder/confirmOrder",
+                  "pages/paySuccess/paySuccess",
+                  "pages/profile/profile",
+                  "pages/settings/settings",
+                  "pages/addressManage/addressManage",
+                  "pages/memberCenter/memberCenter",
+                  "pages/stampCard/stampCard",
+                  "pages/coupons/coupons",
+                  "pages/myOrders/myOrders",
+                  "pages/orderDetail/orderDetail"
+              ],
+    "window":  {
+                   "navigationBarTextStyle":  "black",
+                   "navigationBarTitleText":  "咖啡",
+                   "navigationStyle":  "custom",
+                   "backgroundColor":  "#F4EAD9"
+               },
+    "style":  "v2",
+    "sitemapLocation":  "sitemap.json",
+    "lazyCodeLoading":  "requiredComponents"
+}

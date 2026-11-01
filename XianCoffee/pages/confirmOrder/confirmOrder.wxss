@@ -1,0 +1,524 @@
+/* 确认订单页样式：控制订单卡片、金额明细和底部按钮。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #3f422d;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.confirm-page {
+  min-height: 100vh;
+  padding: 54rpx 28rpx 46rpx;
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+.phone-panel {
+  min-height: calc(100vh - 100rpx);
+  padding: 34rpx 28rpx 30rpx;
+  border-radius: 64rpx;
+  background: #F4EAD9;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.header-row {
+  height: 62rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  width: 58rpx;
+  height: 58rpx;
+  color: #3d412d;
+  font-size: 64rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.page-title {
+  color: #3d412d;
+  font-size: 42rpx;
+  line-height: 58rpx;
+  font-weight: 900;
+  letter-spacing: 6rpx;
+}
+
+.header-placeholder {
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.slogan {
+  margin: 34rpx 0 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22rpx;
+  color: #77715f;
+  font-size: 28rpx;
+  line-height: 38rpx;
+  letter-spacing: 4rpx;
+}
+
+.slogan-leaf {
+  width: 34rpx;
+  height: 44rpx;
+  flex-shrink: 0;
+}
+
+.slogan-leaf.left {
+  transform: rotate(-38deg);
+}
+
+.slogan-leaf.right {
+  transform: rotate(38deg) scaleX(-1);
+}
+
+.section-head,
+.section-title {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333823;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  color: #7b705d;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.clear-icon {
+  width: 32rpx;
+  height: 34rpx;
+}
+
+/* 订单区域：控制订单卡片、状态和商品明细。 */
+.order-card,
+/* 门店区域：控制门店图片、地址和营业信息。 */
+.store-card,
+.option-card,
+.summary-card {
+  border: 2rpx solid rgba(210, 190, 155, 0.62);
+  background: rgba(255, 250, 239, 0.54);
+  box-sizing: border-box;
+}
+
+/* 订单区域：控制订单卡片、状态和明细布局。 */
+.order-card {
+  margin-top: 18rpx;
+  border-radius: 24rpx;
+  overflow: hidden;
+}
+
+.order-item {
+  border-bottom: 2rpx solid rgba(210, 190, 155, 0.36);
+}
+
+.order-item.last {
+  border-bottom: 0;
+}
+
+.item-main {
+  min-height: 174rpx;
+  padding: 18rpx 22rpx 10rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.item-image {
+  width: 190rpx;
+  height: 140rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.item-info {
+  min-width: 0;
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.item-name {
+  color: #303622;
+  font-size: 31rpx;
+  line-height: 40rpx;
+  font-weight: 900;
+}
+
+.hot-tag {
+  height: 32rpx;
+  padding: 0 10rpx;
+  border: 2rpx solid rgba(170, 128, 53, 0.58);
+  border-radius: 6rpx;
+  color: #9b7434;
+  font-size: 20rpx;
+  line-height: 28rpx;
+}
+
+.item-spec {
+  margin-top: 12rpx;
+  color: #746b5c;
+  font-size: 25rpx;
+  line-height: 32rpx;
+}
+
+.item-price {
+  margin-top: 22rpx;
+  color: #6f7c59;
+  font-size: 32rpx;
+  line-height: 36rpx;
+  font-weight: 900;
+}
+
+.qty-box {
+  width: 172rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.qty-btn {
+  width: 46rpx;
+  height: 46rpx;
+  border: 2rpx solid #827c68;
+  border-radius: 50%;
+  color: #585a43;
+  font-size: 36rpx;
+  line-height: 40rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.qty-num {
+  color: #6e7656;
+  font-size: 34rpx;
+  line-height: 46rpx;
+}
+
+.remark-line {
+  height: 52rpx;
+  padding: 0 28rpx;
+  border-top: 2rpx solid rgba(210, 190, 155, 0.28);
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  color: #857967;
+  font-size: 25rpx;
+  box-sizing: border-box;
+}
+
+.pen-icon {
+  color: #9b7434;
+  font-size: 28rpx;
+}
+
+.service-grid {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.service-card {
+  height: 102rpx;
+  padding: 10rpx 14rpx;
+  border: 2rpx solid rgba(83, 78, 61, 0.62);
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: rgba(255, 250, 239, 0.3);
+}
+
+.service-card.active {
+  border-color: #697755;
+  background: #74805d;
+  color: #fff8ec;
+}
+
+.service-icon {
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.service-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-name {
+  font-size: 28rpx;
+  line-height: 34rpx;
+  font-weight: 900;
+}
+
+.service-desc {
+  margin-top: 4rpx;
+  font-size: 20rpx;
+  line-height: 24rpx;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.store-card {
+  margin-top: 22rpx;
+  min-height: 126rpx;
+  padding: 18rpx 24rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.store-icon {
+  width: 58rpx;
+  height: 66rpx;
+  margin-right: 26rpx;
+  flex-shrink: 0;
+}
+
+.store-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.store-title {
+  color: #303622;
+  font-size: 30rpx;
+  line-height: 36rpx;
+  font-weight: 900;
+}
+
+.store-name {
+  margin-top: 8rpx;
+  color: #41442f;
+  font-size: 26rpx;
+  line-height: 32rpx;
+  font-weight: 700;
+}
+
+.store-address {
+  margin-top: 6rpx;
+  color: #887d6b;
+  font-size: 23rpx;
+  line-height: 28rpx;
+}
+
+.arrow {
+  color: #6c6759;
+  font-size: 48rpx;
+  line-height: 48rpx;
+}
+
+.arrow.small {
+  margin-left: 10rpx;
+  font-size: 40rpx;
+}
+
+.option-card {
+  margin-top: 20rpx;
+  border-radius: 22rpx;
+  overflow: hidden;
+}
+
+.option-row {
+  height: 76rpx;
+  padding: 0 28rpx;
+  border-bottom: 2rpx solid rgba(210, 190, 155, 0.36);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.option-row.last {
+  border-bottom: 0;
+}
+
+.option-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.option-title {
+  color: #303622;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.option-value {
+  margin-left: auto;
+  color: #807665;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  white-space: nowrap;
+}
+
+.switch-wrap {
+  margin-left: 14rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mock-switch {
+  width: 86rpx;
+  height: 48rpx;
+  padding: 4rpx;
+  border-radius: 999rpx;
+  background: #cfc3a7;
+  box-sizing: border-box;
+}
+
+.mock-switch.active {
+  background: #74805d;
+}
+
+.mock-switch-dot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #fff8ec;
+  box-shadow: 0 2rpx 8rpx rgba(76, 66, 44, 0.2);
+  transform: translateX(0);
+}
+
+.mock-switch.active .mock-switch-dot {
+  transform: translateX(38rpx);
+}
+
+.summary-card {
+  margin-top: 22rpx;
+  min-height: 188rpx;
+  padding: 22rpx 22rpx 20rpx 28rpx;
+  border-radius: 22rpx;
+  display: flex;
+  align-items: flex-end;
+}
+
+.summary-left {
+  flex: 1;
+  min-width: 0;
+  padding-right: 18rpx;
+}
+
+.price-line {
+  width: 250rpx;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #4c4b3b;
+  font-size: 25rpx;
+  line-height: 30rpx;
+}
+
+.dash-line {
+  width: 250rpx;
+  height: 2rpx;
+  margin: 8rpx 0 18rpx;
+  background-image: linear-gradient(to right, rgba(150, 132, 102, 0.42) 0, rgba(150, 132, 102, 0.42) 10rpx, transparent 10rpx, transparent 20rpx);
+  background-size: 20rpx 2rpx;
+}
+
+.total-line {
+  width: 290rpx;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: #333823;
+  font-size: 28rpx;
+  line-height: 46rpx;
+  font-weight: 900;
+}
+
+.total-line text:last-child {
+  color: #74805d;
+  font-size: 42rpx;
+}
+
+.summary-right {
+  width: 278rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+
+.store-image {
+  width: 260rpx;
+  height: 116rpx;
+  align-self: center;
+}
+
+/* 提交区域：控制底部主按钮和固定栏。 */
+.submit-btn {
+  height: 70rpx;
+  margin-top: 10rpx;
+  border-radius: 38rpx;
+  background: #74805d;
+  color: #fff8ec;
+  font-size: 33rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-weight: 900;
+}
+
+@media (max-width: 360px) {
+  .phone-panel {
+    padding-left: 22rpx;
+    padding-right: 22rpx;
+  }
+
+  .service-card {
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+  }
+
+  .service-icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 8rpx;
+  }
+
+  .service-name {
+    font-size: 25rpx;
+  }
+
+  .summary-right {
+    width: 250rpx;
+  }
+}

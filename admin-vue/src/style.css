@@ -1,0 +1,208 @@
+/* 后台全局样式：定义全局背景、卡片、滚动条和通用类。 */
+:root {
+  color: #26311f;
+  background: #f4ead9;
+  font-family: Inter, "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 1280px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 234, 0.78), rgba(244, 234, 217, 0.96)),
+    #f4ead9;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.page-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-title-row {
+  min-height: 96px;
+  padding: 22px 24px;
+  border: 1px solid rgba(178, 154, 114, 0.34);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 251, 242, 0.96), rgba(247, 238, 221, 0.9)),
+    #fff8ea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 14px 36px rgba(88, 72, 42, 0.06);
+}
+
+.page-title-row h2 {
+  margin: 0;
+  color: #26311f;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.page-title-row p {
+  margin: 8px 0 0;
+  color: #746955;
+  font-size: 14px;
+}
+
+.admin-card {
+  border: 1px solid rgba(178, 154, 114, 0.34);
+  border-radius: 8px;
+  background: rgba(255, 250, 239, 0.94);
+  box-shadow: 0 14px 34px rgba(80, 66, 42, 0.07);
+}
+
+/* 表格容器：控制列表区域背景、圆角和溢出。 */
+.table-card {
+  padding: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 22px;
+}
+
+.full-line {
+  grid-column: 1 / -1;
+}
+
+.sync-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid rgba(116, 128, 93, 0.22);
+  border-radius: 999px;
+  background: rgba(116, 128, 93, 0.12);
+  color: #526044;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 商品区域：控制商品图片、信息、价格和按钮。 */
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-thumb {
+  width: 72px;
+  height: 62px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f4ead9;
+  border: 1px solid rgba(178, 154, 114, 0.32);
+}
+
+.product-name strong {
+  display: block;
+  color: #26311f;
+}
+
+.product-name span {
+  display: block;
+  margin-top: 4px;
+  color: #817661;
+  font-size: 12px;
+}
+
+.el-button--primary {
+  --el-button-bg-color: #667452;
+  --el-button-border-color: #667452;
+  --el-button-hover-bg-color: #526044;
+  --el-button-hover-border-color: #526044;
+}
+
+.el-menu-item.is-active {
+  background: rgba(116, 128, 93, 0.14);
+}
+
+.el-table {
+  --el-table-header-bg-color: #f7efdf;
+  --el-table-row-hover-bg-color: #fbf4e7;
+}
+
+.mini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mini-preview-card {
+  min-height: 180px;
+  padding: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mini-preview-card::after {
+  content: "";
+  position: absolute;
+  right: -26px;
+  bottom: -36px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(116, 128, 93, 0.08);
+}
+
+.mini-preview-card h3 {
+  margin: 12px 0 8px;
+  color: #26311f;
+  font-size: 20px;
+}
+
+.mini-preview-card p {
+  margin: 0;
+  color: #746955;
+  line-height: 1.7;
+}
+
+.mini-page-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #667452;
+  color: #fff8ea;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.coffee-image {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  border: 1px solid rgba(178, 154, 114, 0.24);
+  border-radius: 8px;
+  background: #f4ead9;
+}
+
+.section-title {
+  margin: 0 0 14px;
+  color: #26311f;
+  font-size: 18px;
+}

@@ -1,0 +1,505 @@
+/* 商品详情页样式：控制详情图片、规格按钮和底部操作区。 */
+/* 页面样式配置 */
+/* 页面基础样式：设置背景色、字体颜色和最小高度。 */
+page {
+  min-height: 100vh;
+  background: #F4EAD9;
+  color: #44472e;
+}
+
+/* 页面主容器：控制整体间距、背景和安全区域。 */
+.detail-page {
+  min-height: 100vh;
+  padding: 70rpx 30rpx calc(144rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  background: #F4EAD9;
+}
+
+/* 顶部栏：控制返回和分享。 */
+.top-bar {
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  position: relative;
+  width: 58rpx;
+  height: 58rpx;
+  flex-shrink: 0;
+}
+
+.back-btn::before {
+  content: '';
+  position: absolute;
+  left: 22rpx;
+  top: 17rpx;
+  width: 22rpx;
+  height: 22rpx;
+  border-left: 4rpx solid #44472e;
+  border-bottom: 4rpx solid #44472e;
+  transform: rotate(45deg);
+}
+
+.share-btn {
+  width: 46rpx;
+  height: 46rpx;
+  padding: 6rpx;
+  flex-shrink: 0;
+}
+
+/* 品牌元素：控制 logo、标题和英文标识样式。 */
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-name {
+  color: #4a4d32;
+  font-size: 34rpx;
+  line-height: 38rpx;
+  font-weight: 900;
+  letter-spacing: 8rpx;
+}
+
+.brand-en {
+  margin-top: 6rpx;
+  color: #4a4d32;
+  font-size: 16rpx;
+  line-height: 18rpx;
+  letter-spacing: 4rpx;
+}
+
+/* 商品主图：控制图片比例。 */
+.hero-card {
+  height: 410rpx;
+  margin: 14rpx -30rpx 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 商品区域：控制商品图片、信息、价格和按钮样式。 */
+/* 商品区域：控制商品图片、信息、价格和按钮。 */
+.product-head {
+  margin-top: 18rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.title-wrap {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.product-name {
+  color: #4c5634;
+  font-size: 42rpx;
+  line-height: 50rpx;
+  font-weight: 900;
+  letter-spacing: 4rpx;
+}
+
+.recommend-tag {
+  height: 34rpx;
+  padding: 0 14rpx;
+  border: 2rpx solid #c5a566;
+  border-radius: 18rpx;
+  color: #9b7740;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  white-space: nowrap;
+}
+
+.price-wrap {
+  display: flex;
+  align-items: baseline;
+  color: #4f5438;
+  flex-shrink: 0;
+}
+
+.price-symbol {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  font-weight: 700;
+}
+
+.price-num {
+  margin-left: 8rpx;
+  font-size: 52rpx;
+  line-height: 58rpx;
+  font-weight: 500;
+}
+
+.product-desc {
+  margin-top: 14rpx;
+  display: block;
+  color: #625d4b;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.divider {
+  height: 2rpx;
+  margin: 22rpx 0 12rpx;
+  background: rgba(176, 155, 119, 0.45);
+}
+
+/* 规格区域：控制选项排布。 */
+.option-group {
+  border-bottom: 2rpx dashed rgba(180, 159, 123, 0.42);
+}
+
+.option-row {
+  min-height: 88rpx;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.option-label {
+  width: 142rpx;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.option-title {
+  color: #4b4f33;
+  font-size: 34rpx;
+  line-height: 38rpx;
+  font-weight: 900;
+}
+
+.option-en {
+  margin-top: 3rpx;
+  color: #7f7766;
+  font-size: 16rpx;
+  line-height: 18rpx;
+  letter-spacing: 0;
+}
+
+.option-list {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+  flex-wrap: nowrap;
+  padding: 16rpx 0;
+}
+
+.option-group-temperature .option-list,
+.option-group-cup .option-list {
+  padding-left: 42rpx;
+  gap: 18rpx;
+}
+
+.option-group-sugar .option-list {
+  padding-left: 10rpx;
+  gap: 10rpx;
+}
+
+.option-group-extra .option-list {
+  padding-left: 0;
+  justify-content: flex-start;
+  gap: 9rpx;
+}
+
+.option-pill {
+  height: 54rpx;
+  min-width: 116rpx;
+  padding: 0 22rpx;
+  border: 2rpx solid rgba(180, 159, 123, 0.48);
+  border-radius: 28rpx;
+  color: #655e4e;
+  background: rgba(255, 248, 235, 0.36);
+  font-size: 26rpx;
+  line-height: 52rpx;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  white-space: nowrap;
+}
+
+.option-group-temperature .option-pill,
+.option-group-cup .option-pill {
+  width: 142rpx;
+}
+
+.option-group-sugar .option-pill {
+  width: 114rpx;
+  min-width: 114rpx;
+  padding: 0 12rpx;
+}
+
+.option-group-sugar .option-pill.wide {
+  width: 142rpx;
+  min-width: 142rpx;
+}
+
+.option-group-extra .option-pill {
+  min-width: 112rpx;
+  padding: 0 16rpx;
+}
+
+.option-group-extra .option-pill.wide {
+  min-width: 146rpx;
+}
+
+.option-pill.active {
+  border-color: #74805d;
+  background: #74805d;
+  color: #fff8ec;
+}
+
+.option-icon {
+  width: 28rpx;
+  height: 28rpx;
+  flex-shrink: 0;
+}
+
+.more-arrow {
+  margin-left: -2rpx;
+  font-size: 22rpx;
+  line-height: 24rpx;
+}
+
+.extra-more-panel {
+  margin: 0 0 18rpx 140rpx;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  flex-wrap: wrap;
+}
+
+.extra-more-pill {
+  height: 48rpx;
+  min-width: 122rpx;
+  padding: 0 20rpx;
+  border-radius: 25rpx;
+  border: 2rpx solid rgba(180, 159, 123, 0.48);
+  color: #655e4e;
+  background: rgba(255, 248, 235, 0.52);
+  font-size: 24rpx;
+  line-height: 46rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.extra-more-pill.active {
+  border-color: #74805d;
+  background: #74805d;
+  color: #fff8ec;
+}
+
+.about-card {
+  min-height: 192rpx;
+  margin-top: 22rpx;
+  padding: 28rpx 18rpx 24rpx 28rpx;
+  border: 2rpx solid rgba(190, 170, 136, 0.62);
+  border-radius: 22rpx;
+  background: rgba(255, 248, 235, 0.36);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.about-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10rpx;
+}
+
+.about-title {
+  color: #4b4f33;
+  font-size: 34rpx;
+  line-height: 40rpx;
+  font-weight: 900;
+  letter-spacing: 3rpx;
+}
+
+.about-en {
+  color: #77705f;
+  font-size: 16rpx;
+  line-height: 18rpx;
+  letter-spacing: 2rpx;
+}
+
+.about-text {
+  margin-top: 18rpx;
+  display: block;
+  color: #5f5949;
+  font-size: 25rpx;
+  line-height: 38rpx;
+}
+
+.about-image {
+  width: 176rpx;
+  height: 146rpx;
+  margin-left: 10rpx;
+  flex-shrink: 0;
+}
+
+/* 底部栏：固定加购操作。 */
+.bottom-bar {
+  position: fixed;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: calc(22rpx + env(safe-area-inset-bottom));
+  z-index: 30;
+  height: 86rpx;
+  border: 2rpx solid rgba(190, 170, 136, 0.55);
+  border-radius: 44rpx;
+  background: rgba(255, 248, 235, 0.94);
+  display: flex;
+  align-items: center;
+  padding: 0 8rpx 0 24rpx;
+  box-sizing: border-box;
+}
+
+.quantity-box {
+  width: 182rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.step-btn {
+  width: 46rpx;
+  height: 46rpx;
+  border: 2rpx solid rgba(94, 92, 67, 0.56);
+  border-radius: 50%;
+  color: #4d5238;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.quantity-num {
+  color: #4b4f33;
+  font-size: 32rpx;
+  line-height: 46rpx;
+  font-weight: 700;
+}
+
+.add-cart-btn {
+  flex: 1;
+  height: 72rpx;
+  margin-left: 18rpx;
+  border-radius: 38rpx;
+  background: #74805d;
+  color: #fff8ec;
+  box-shadow: 0 10rpx 20rpx rgba(80, 90, 62, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+/* 购物袋区域：控制底部金额、数量和结算按钮。 */
+.cart-icon {
+  width: 36rpx;
+  height: 36rpx;
+  flex-shrink: 0;
+}
+
+.add-text {
+  font-size: 28rpx;
+  line-height: 36rpx;
+  font-weight: 900;
+  letter-spacing: 2rpx;
+}
+
+.add-price {
+  margin-left: 12rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+
+@media (max-width: 360px) {
+  .detail-page {
+    padding-left: 24rpx;
+    padding-right: 24rpx;
+  }
+
+  .hero-card {
+    margin-left: -24rpx;
+    margin-right: -24rpx;
+  }
+
+  .option-label {
+    width: 112rpx;
+  }
+
+  .option-row {
+    gap: 10rpx;
+  }
+
+  .option-group-temperature .option-list,
+  .option-group-cup .option-list {
+    padding-left: 58rpx;
+  }
+
+  .option-group-sugar .option-list {
+    padding-left: 24rpx;
+  }
+
+  .option-pill {
+    min-width: 76rpx;
+    padding: 0 10rpx;
+    font-size: 21rpx;
+  }
+
+  .option-group-temperature .option-pill,
+  .option-group-cup .option-pill {
+    width: 82rpx;
+  }
+
+  .option-group-sugar .option-pill {
+    width: 72rpx;
+    min-width: 72rpx;
+  }
+
+  .option-group-sugar .option-pill.wide {
+    width: 92rpx;
+    min-width: 92rpx;
+  }
+
+  .option-group-extra .option-pill.wide {
+    min-width: 108rpx;
+  }
+
+  .extra-more-panel {
+    margin-left: 122rpx;
+  }
+
+  .about-image {
+    width: 148rpx;
+  }
+}

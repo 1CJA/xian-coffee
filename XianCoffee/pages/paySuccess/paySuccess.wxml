@@ -1,0 +1,65 @@
+<!-- 支付成功页结构：展示成功状态、取餐码和操作按钮。 -->
+<!-- 页面结构布局 -->
+<!-- 页面主容器：包裹当前页面的全部内容。 -->
+<view class="pay-success-page">
+  <view class="success-content">
+    <view class="brand" bindtap="handleBrandTap">
+      <image class="brand-leaf brand-leaf-left" src="{{leafIcon}}" mode="aspectFit"></image>
+      <view class="brand-copy">
+        <text class="brand-name">栖岸咖啡</text>
+        <text class="brand-en">QI'AN COFFEE</text>
+      </view>
+      <image class="brand-leaf brand-leaf-right" src="{{leafIcon}}" mode="aspectFit"></image>
+    </view>
+
+    <image class="check-icon" src="{{checkIcon}}" mode="aspectFit" bindtap="handleCheckTap"></image>
+    <view class="status-title" bindtap="handleStatusTap">支付成功</view>
+
+    <view class="thanks-row" bindtap="handleThanksTap">
+      <image class="small-leaf left" src="{{leafIcon}}" mode="aspectFit"></image>
+      <text>感谢您的购买，欢迎再次光临</text>
+      <image class="small-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+    </view>
+
+    <image class="hero-image" src="{{heroImage}}" mode="aspectFit" bindtap="handleHeroTap"></image>
+
+    <view class="code-card" bindtap="handleCodeTap">
+      <view class="code-title">
+        <image class="title-leaf left" src="{{leafIcon}}" mode="aspectFit"></image>
+        <text>取 餐 码</text>
+        <image class="title-leaf right" src="{{leafIcon}}" mode="aspectFit"></image>
+      </view>
+      <view class="code-line">
+        <text class="side-mark">›</text>
+        <text class="pickup-code">{{pickupCode}}</text>
+        <text class="side-mark right">‹</text>
+      </view>
+      <view class="dash-line"></view>
+      <view class="amount-row">
+        <text class="amount-label">订单金额</text>
+        <text class="amount-value">¥{{amountText}}</text>
+      </view>
+    </view>
+
+    <view class="info-card" bindtap="handleInfoCardTap">
+      <view class="info-row" bindtap="handleStoreTap">
+        <image class="info-icon" src="{{storeIcon}}" mode="aspectFit"></image>
+        <text class="info-label">下单门店：</text>
+        <text class="info-value">{{storeName}}</text>
+      </view>
+      <view class="info-row" bindtap="handleMethodTap">
+        <image class="info-icon" src="{{pickupIcon}}" mode="aspectFit"></image>
+        <text class="info-label">取餐方式：</text>
+        <text class="info-value">{{takeMethod}}</text>
+      </view>
+      <view class="info-row last" bindtap="handleTimeTap">
+        <image class="info-icon" src="{{timeIcon}}" mode="aspectFit"></image>
+        <text class="info-label">预计取餐时间：</text>
+        <text class="info-value">{{pickupTime}}</text>
+      </view>
+    </view>
+
+    <view class="primary-action" bindtap="handleViewOrderTap">查看订单</view>
+    <view class="secondary-action" bindtap="handleContinueTap">继续逛逛</view>
+  </view>
+</view>
