@@ -34,6 +34,34 @@
 | --- | --- |
 | <img src="preview-member.png" alt="会员中心页" width="320"> | <img src="preview-store.png" alt="门店详情页" width="320"> |
 
+## Vue3 后台管理端部分页面展示
+
+以下为后台管理端的 6 张页面设计参考图，仅展示部分页面；图中数据用于效果展示，实际功能与界面以源码运行结果为准。
+
+### 后台登录页
+
+<img src="preview-admin-login.jpg" alt="后台登录页设计参考图" width="1000">
+
+### 数据概览页
+
+<img src="preview-admin-dashboard.jpg" alt="数据概览页设计参考图" width="1000">
+
+### 商品管理页
+
+<img src="preview-admin-products.jpg" alt="商品管理页设计参考图" width="1000">
+
+### 分类管理页
+
+<img src="preview-admin-categories.jpg" alt="分类管理页设计参考图" width="1000">
+
+### 订单管理页
+
+<img src="preview-admin-orders.jpg" alt="订单管理页设计参考图" width="1000">
+
+### 门店管理页
+
+<img src="preview-admin-stores.jpg" alt="门店管理页设计参考图" width="1000">
+
 ## 功能介绍
 
 ### 微信小程序用户端
