@@ -18,6 +18,22 @@
 | --- | --- |
 | <img src="uploads/images/miniprogram/store-detail/storefront.png" alt="门店插画" width="340"> | <img src="admin-vue/public/admin-assets/admin-login-scene.png" alt="后台登录页插画" width="380"> |
 
+## 微信小程序部分页面展示
+
+以下选取 7 张微信小程序页面设计效果图，展示项目的部分页面，并非全部页面；实际运行效果以源码为准。
+
+| 首页欢迎页 | 登录注册页 | 功能入口页 |
+| --- | --- | --- |
+| <img src="preview-welcome.png" alt="首页欢迎页" width="260"> | <img src="preview-login.png" alt="登录注册页" width="260"> | <img src="preview-entry.png" alt="功能入口页" width="260"> |
+
+| 菜单点单页 | 购物袋页 |
+| --- | --- |
+| <img src="preview-menu.png" alt="菜单点单页" width="320"> | <img src="preview-bag.png" alt="购物袋页" width="320"> |
+
+| 会员中心页 | 门店详情页 |
+| --- | --- |
+| <img src="preview-member.png" alt="会员中心页" width="320"> | <img src="preview-store.png" alt="门店详情页" width="320"> |
+
 ## 功能介绍
 
 ### 微信小程序用户端
