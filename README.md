@@ -2,7 +2,21 @@
 
 基于 **微信小程序 + Vue3 + Spring Boot + MyBatis + MySQL** 的咖啡馆点单课程项目，覆盖用户点单和管理员维护业务数据的完整流程。
 
-> 项目用于课程学习与功能演示，支付为模拟支付。当前仓库已包含三端源码和数据库表结构，页面素材补传正在处理中。尚未完成素材补传前，部分图片不能正常显示。
+> 项目用于课程学习与功能演示，支付为模拟支付。仓库包含三端源码、17 张表结构、后台与小程序静态图片及门店演示视频。导入数据库并录入业务数据、配置图片目录后即可本地体验。
+
+## 视觉与素材预览
+
+<p align="center"><img src="admin-vue/public/admin-assets/admin-brand-logo.jpg" alt="栖岸咖啡品牌标识" width="420"></p>
+
+采用咖啡馆主题插画、米色页面背景与绿色交互元素。以下为项目实际使用的图片素材，不是运行截图。
+
+| 招牌拿铁轮播图 | 甜点时光轮播图 | 会员专享轮播图 |
+| --- | --- | --- |
+| ![招牌拿铁](uploads/images/admin/banner/banner-latte.jpg) | ![甜点时光](uploads/images/admin/banner/banner-dessert.jpg) | ![会员专享](uploads/images/admin/banner/banner-member.jpg) |
+
+| 门店插画 | 后台登录页插画 |
+| --- | --- |
+| <img src="uploads/images/miniprogram/store-detail/storefront.png" alt="门店插画" width="340"> | <img src="admin-vue/public/admin-assets/admin-login-scene.png" alt="后台登录页插画" width="380"> |
 
 ## 功能介绍
 
@@ -49,6 +63,7 @@ xian-coffee/
 ├── XianCoffee/          微信小程序
 ├── admin-vue/           Vue3 管理端
 ├── XianCoffeebackend/    Spring Boot 后端
+├── uploads/images/     后台、小程序静态素材与演示视频
 ├── sql/schema.sql      数据库表结构
 ├── README.md           项目说明
 ├── LICENSE             源码 MIT 许可证
@@ -133,7 +148,7 @@ http://localhost:2544/images/miniprogram/menu/latte.png
 http://localhost:2544/images/admin/banner/banner-latte.jpg
 ```
 
-**当前状态：246 个静态素材文件已在本地核对，GitHub 补传尚未完成。** 图片未补齐前不能将仓库视为完整可展示版本；本说明不会把效果图冒充实际运行截图。
+**已提供 246 个静态素材文件（含两份门店演示视频路径），并补齐 Vue 管理端的 18 个 public 静态图片。** 文件位于上述目录，保持原项目相对路径。真实用户上传的图片不随仓库发布。
 
 ## 建议体验流程
 

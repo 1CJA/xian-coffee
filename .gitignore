@@ -7,7 +7,11 @@
 .env.*
 !.env.example
 **/project.private.config.json
-uploads/
+/uploads/*
+!/uploads/images/
+/uploads/images/*
+!/uploads/images/admin/
+!/uploads/images/miniprogram/
 准备图片/
 *.log
 sql/*export*.sql
